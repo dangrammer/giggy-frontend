@@ -55,7 +55,8 @@ export const validateUser = (returningUser, history) => {
 }
 
 export const createUser = (newUser, history) => {
-  const {firstName, lastName, userName, password, imageUrl, city, state, zipCode} = newUser
+  const {firstName, lastName, userName, password, 
+    imageUrl, city, state, zipCode} = newUser
 
   return (dispatch) => {
     dispatch({type: 'LOADING'})

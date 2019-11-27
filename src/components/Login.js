@@ -38,8 +38,9 @@ const Login = ({history}) => {
       user = {userName, password} 
       dispatch(validateUser(user, history))
     } else {
-      user = {firstName, lastName, userName, password, imageUrl, city, state, zipCode}
-      dispatch(createUser(user))
+      user = {firstName, lastName, userName, 
+        password, imageUrl, city, state, zipCode}
+      dispatch(createUser(user, history))
     }  
     clearForm()
   }

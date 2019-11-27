@@ -1,17 +1,16 @@
 import React from 'react'
+import {Switch, Route, Redirect} from 'react-router-dom'
 import ListingsContainer from './ListingsContainer'
-import {Switch, Route} from 'react-router-dom' //, Redirect
-// import ProfilesContainer from './ProfilesContainer'
+import ProfilesContainer from './ProfilesContainer'
 
 const MainContainer = () => {
   
   return (
     <>
-      
       <Switch>
         <Route path='/listings' component={ListingsContainer}/>
-        {/* <ProfilesContainer/> */}
-        {/* <Redirect to='/listings'/> // other switch routes need to be established first */}
+        <Route path='/profiles' component={ProfilesContainer}/>
+        <Redirect to='/listings'/>
       </Switch>
     </>
   )

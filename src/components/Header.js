@@ -15,13 +15,10 @@ const Header = ({history}) => {
   return (
     <div>
       <h2>Giggy</h2>
-      {Object.keys(currentUser).length > 0 ?
-        <span>
-          {`Welcome, ${currentUser.attributes.first_name}!`}
-          <button onClick={handleClick}>Log Out</button>
-        </span> :
-          null
-      }
+      <span>
+        {`Welcome, ${currentUser.attributes.first_name}!`}
+        <button onClick={handleClick}>Log Out</button>
+      </span>
     </div>
   )
 }

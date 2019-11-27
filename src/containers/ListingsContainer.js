@@ -8,7 +8,7 @@ import ListingShow from '../components/listings/ListingShow'
 const ListingsContainer = () => {
   const dispatch = useDispatch()
 
-  useEffect(() => dispatch(fetchListings()))
+  useEffect(() => dispatch(fetchListings()), [dispatch])
 
   return (
     <Switch>
