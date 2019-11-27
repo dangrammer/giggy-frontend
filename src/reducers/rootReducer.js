@@ -3,7 +3,6 @@ import currentUserReducer from './currentUserReducer'
 import listingsReducer from './listingsReducer'
 import profilesReducer from './profilesReducer'
 
-
 const rootReducer = combineReducers({
   currentUser: currentUserReducer,
   listingsReducer: listingsReducer,

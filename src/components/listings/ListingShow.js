@@ -1,8 +1,11 @@
 import React from 'react'
-import {useSelector} from 'react-redux' //, useDispatch
+import {useSelector, useDispatch} from 'react-redux'
+import {profileShow} from '../../actions/profilesActions'
+import {createApplication} from '../../actions/applicationsActions'
+
 
 const ListingShow = ({history}) => {
-  // const dispatch = useDispatch()
+  const dispatch = useDispatch()
   const listingShow = useSelector(state => state.listingsReducer.listingShow)
   const currentUser = useSelector(state => state.currentUser)
   const currentUserId = parseInt(currentUser.id, 10)
@@ -10,10 +13,15 @@ const ListingShow = ({history}) => {
     poster, posting_date, zip_code, applicants} = listingShow.attributes
   const applicantIds = applicants.map(a => a.id)
 
-  const handleClick = () => {
-    console.log('apply')
+  
+  const applyToListing = () => {
+    dispatch(createApplication(listingShow.id, currentUser.id))
   }
-
+  
+  const viewProfile = () => {
+    dispatch(profileShow(poster.id, history)) 
+  }
+ 
   const navBack = () => {
     history.goBack() 
   }
@@ -22,10 +30,11 @@ const ListingShow = ({history}) => {
     <div>
       <h1>{subject}</h1>
       {`Posted on: ${posting_date}`}<br/>  
-      {`Posted by: ${poster.username}`}<br/>
+      Posted by: <span style={{color: "blue"}} onClick={viewProfile}>@{poster.username}</span><br/>
       {`${applicants.length} ${applicants.length === 1 ? 'Applicant' : 'Applicants'}`}<br/>
       {paying ? 'Paying' : 'Non-paying'}<br/>
-      {date ? end_date ? `Gig date: ${date} to ${end_date}` : `Gig date: ${date}` : null}
+      {date ? end_date ? `Gig date: ${date} to ${end_date}` : `Gig date: ${date}` : null}<br/>
+      <br/>
       {city && state && zip_code ? `Location: ${city}, ${state} ${zip_code}` : null}<br/>
       <br/>
       {description}<br/>
@@ -33,12 +42,12 @@ const ListingShow = ({history}) => {
       {poster.id === currentUserId ?
         '(This is your listing)' :
           applicantIds.includes(currentUserId) ? 
-            'You\'ve already applied' :
-              <button onClick={handleClick}>Apply for this opportunity</button>
+            'You\'ve applied!' :
+              <button onClick={applyToListing}>Apply for this opportunity</button>
       }
       <br/>
       <br/>
-      <button onClick={navBack}>Back to listings</button>
+      <button onClick={navBack}>Back</button>
     </div>
   )  
 }

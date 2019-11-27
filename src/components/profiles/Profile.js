@@ -13,7 +13,8 @@ const Profile = (props) => {
   return (
     <div onClick={handleClick}>
       {username}
-      {` — ${principal_role} / ${principal_instrument} — `}
+      {principal_role ? ` — ${principal_role}` : ' — '} 
+      {principal_instrument ? ` / ${principal_instrument} — ` : null}
       {location}
     </div>
   )

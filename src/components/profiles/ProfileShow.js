@@ -22,7 +22,7 @@ const ProfileShow = ({history}) => {
       {`Bio: ${bio}`}<br/>
       {`Credits: ${credits}`}<br/>
       <br/>
-      <button onClick={navBack}>Back to Profiles</button>
+      <button onClick={navBack}>Back</button>
     </div>
   )
 }

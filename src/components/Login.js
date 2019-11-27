@@ -14,7 +14,7 @@ const Login = ({history}) => {
   const [zipCode, setZipCode] = useState('')
   const [login, setLogin] = useState(true)
   const dispatch = useDispatch()
-  
+  console.log(history)
   const clearForm = () => {
     setFirstName('')
     setLastName('')
