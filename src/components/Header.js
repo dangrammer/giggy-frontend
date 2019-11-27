@@ -2,31 +2,28 @@ import React from 'react'
 import {useSelector, useDispatch} from 'react-redux'
 import {logoutUser} from '../actions/currentUserActions'
 
-const Home = () => {
+const Header = ({history}) => {
   const dispatch = useDispatch()
   const currentUser = useSelector(state => state.currentUser)
-
-  console.log(useSelector(state => state))
-  console.log(currentUser)
-
   
   const handleClick = () => {
     localStorage.removeItem('token')
     dispatch(logoutUser())
+    history.push('/')
   }
-
+ 
   return (
     <div>
-      Home
-      <br/>
-      {`Welcome, ${currentUser.attributes && currentUser.attributes.first_name}`}
-      <br/> 
-      {currentUser.id ?
-        <button onClick={handleClick}>Log Out</button> :
+      <h2>Giggy</h2>
+      {Object.keys(currentUser).length > 0 ?
+        <span>
+          {`Welcome, ${currentUser.attributes.first_name}!`}
+          <button onClick={handleClick}>Log Out</button>
+        </span> :
           null
       }
-    </div> 
+    </div>
   )
 }
 
-export default Home
+export default Header

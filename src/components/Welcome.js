@@ -1,13 +1,15 @@
 import React from 'react'
-import {Link} from 'react-router-dom'
+import {Route} from 'react-router-dom'
+import About from './About'
+import Login from './Login'
 
 const Welcome = () => {
+  
   return (
-    <div>
-      <h1>Welcome to Giggy</h1>
-      <p>Get connected with music opportunities, directly and transparently.</p>
-      <Link to='/login'><button>Enter</button></Link>
-    </div> 
+    <>
+      <About/>
+      <Route component={Login}/>
+    </> 
   )
 }
 

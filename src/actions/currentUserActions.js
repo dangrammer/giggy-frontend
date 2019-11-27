@@ -27,7 +27,7 @@ export const loadProfile = () => {
   }
 }
 
-export const validateUser = (returningUser) => {
+export const validateUser = (returningUser, history) => {
   const {userName, password} = returningUser
 
   return (dispatch) => {
@@ -49,11 +49,12 @@ export const validateUser = (returningUser) => {
         console.log(data.errors) : // do something more useful with errors
           localStorage.setItem('token', data.token)
           dispatch(loginUser(data.user.data))
+          history.push('/listings')
     })
   }
 }
 
-export const createUser = (newUser) => {
+export const createUser = (newUser, history) => {
   const {firstName, lastName, userName, password, imageUrl, city, state, zipCode} = newUser
 
   return (dispatch) => {
@@ -81,6 +82,7 @@ export const createUser = (newUser) => {
         console.log(data.errors) : // do something more useful with errors
           localStorage.setItem('token', data.token)
           dispatch(loginUser(data.user.data))
+          history.push('/listings')
     })
   }
 }

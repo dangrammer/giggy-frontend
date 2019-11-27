@@ -1,26 +1,34 @@
 import React, {useEffect} from 'react'
-import {useDispatch} from 'react-redux'
+import {useDispatch, useSelector} from 'react-redux'
 import {loadProfile} from './actions/currentUserActions'
-
-import {Route, Switch, Redirect} from 'react-router'
+import {Route, Redirect} from 'react-router-dom'
 import Welcome from './components/Welcome'
-import Login from './components/Login'
-import Home from './components/Home'
+import Header from './components/Header'
+import NavBar from './components/NavBar'
+import MainContainer from './containers/MainContainer'
 
 const App = () => {
   const dispatch = useDispatch()
-  useEffect(() => dispatch(loadProfile()))
+  const currentUser = useSelector(state => state.currentUser)
+
+  useEffect(() => dispatch(loadProfile()), [dispatch])
 
   return (
-    <Switch>
-      <Route exact path='/' component={Welcome}/>
-      <Route exact path='/login' component={Login}/>
-      {localStorage.token ?
-        <Route exact path='/home' component={Home}/> :
+    <>
+      {Object.keys(currentUser).length > 0 ?
+        <>
+          <Route component={Header}/>
+          <NavBar/>
+          <Route component={MainContainer}/>
+        </> :
+        <>
+          <Route exact path='/' component={Welcome}/>
           <Redirect to='/'/>
+        </>
       }
-    </Switch>
+    </>
   )
 }
 
 export default App
+ 

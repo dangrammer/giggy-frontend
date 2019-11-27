@@ -8,11 +8,9 @@ const currentUserReducer = (state = initialState, action) => {
       return state
 
     case 'LOGIN_USER':
-      console.log(action.user, 'adding user')
       return {...action.user} 
 
     case 'LOGOUT_USER':
-        console.log('removing user')
       return {} 
 
     default:
