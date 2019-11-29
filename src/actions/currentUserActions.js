@@ -91,3 +91,26 @@ export const createUser = (newUser, history) => {
 export const logoutUser = () => ({
   type: 'LOGOUT_USER'
 })
+
+export const deleteUser = (userId, history) => {
+  return (dispatch) => {
+    const token = localStorage.token
+
+    dispatch({type: 'LOADING'})
+    fetch(`http://localhost:3000/api/v1/users/${userId}`, {
+      method: 'DELETE',
+      headers: {
+        'Content-Type': 'application/json',
+        'Accept': 'application/json',
+        'Authorization': `Bearer ${token}`
+      }
+    })
+    .then(response => response.json())
+    .then(data => {
+      console.log(data.success)
+      dispatch({type: 'DELETE_USER'})
+      localStorage.removeItem('token')
+      history.push('/')
+    })
+  }
+}

@@ -4,6 +4,7 @@ import {createUser} from '../actions/currentUserActions'
 import {useDispatch} from 'react-redux'
 
 const Login = ({history}) => {
+  const dispatch = useDispatch()
   const [firstName, setFirstName] = useState('')
   const [lastName, setLastName] = useState('')
   const [userName, setUserName] = useState('')
@@ -13,8 +14,7 @@ const Login = ({history}) => {
   const [state, setState] = useState('')
   const [zipCode, setZipCode] = useState('')
   const [login, setLogin] = useState(true)
-  const dispatch = useDispatch()
-  console.log(history)
+  
   const clearForm = () => {
     setFirstName('')
     setLastName('')

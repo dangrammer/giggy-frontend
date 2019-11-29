@@ -3,7 +3,7 @@ import {useSelector} from 'react-redux'
 import Listing from './Listing'
 
 const Listings = ({history}) => {
-  const listings = useSelector(state => state.listingsReducer.listings)
+  const listings = useSelector(state => state.listingReducer.listings)
 
   return (
     <div>

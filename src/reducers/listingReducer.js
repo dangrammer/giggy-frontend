@@ -3,7 +3,7 @@ const initialState = {
   listingShow: {}
 }
 
-const listingsReducer = (state = initialState, action) => {
+const listingReducer = (state = initialState, action) => {
   switch (action.type) {
 
     case 'LOADING':
@@ -13,6 +13,13 @@ const listingsReducer = (state = initialState, action) => {
     case 'FETCH_LISTINGS':
       return {...state, listings: [...action.listings]} 
 
+    case 'CREATE_LISTING':
+      return {
+        ...state, 
+        listings: [...state.listings, action.listing], 
+        listingShow: action.listing
+      }  
+
     case 'LISTING_SHOW':
       return {...state, listingShow: action.listing}
 
@@ -21,4 +28,4 @@ const listingsReducer = (state = initialState, action) => {
   }  
 }
 
-export default listingsReducer
+export default listingReducer

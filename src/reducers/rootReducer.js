@@ -1,12 +1,14 @@
 import {combineReducers} from 'redux'
 import currentUserReducer from './currentUserReducer'
-import listingsReducer from './listingsReducer'
-import profilesReducer from './profilesReducer'
+import listingReducer from './listingReducer'
+import profileReducer from './profileReducer'
+import categoryReducer from './categoryReducer'
 
 const rootReducer = combineReducers({
-  currentUser: currentUserReducer,
-  listingsReducer: listingsReducer,
-  profilesReducer: profilesReducer
+  currentUserReducer: currentUserReducer,
+  listingReducer: listingReducer,
+  profileReducer: profileReducer,
+  categoryReducer: categoryReducer
 })
 
 export default rootReducer

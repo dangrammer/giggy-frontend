@@ -1,6 +1,6 @@
 import React from 'react'
 import {useDispatch} from 'react-redux'
-import {listingShow} from '../../actions/listingsActions'
+import {listingShow} from '../../actions/listingActions'
 
 const Listing = (props) => {
   const dispatch = useDispatch()

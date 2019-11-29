@@ -1,13 +1,13 @@
 import React from 'react'
 import {useSelector, useDispatch} from 'react-redux'
-import {profileShow} from '../../actions/profilesActions'
-import {createApplication} from '../../actions/applicationsActions'
+import {profileShow} from '../../actions/profileActions'
+import {createApplication} from '../../actions/applicationActions'
 
 
 const ListingShow = ({history}) => {
   const dispatch = useDispatch()
-  const listingShow = useSelector(state => state.listingsReducer.listingShow)
-  const currentUser = useSelector(state => state.currentUser)
+  const listingShow = useSelector(state => state.listingReducer.listingShow)
+  const currentUser = useSelector(state => state.currentUserReducer.currentUser)
   const currentUserId = parseInt(currentUser.id, 10)
   const {subject, description, city, state, date, end_date, paying, 
     poster, posting_date, zip_code, applicants} = listingShow.attributes

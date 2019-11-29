@@ -4,7 +4,7 @@ import {logoutUser} from '../actions/currentUserActions'
 
 const Header = ({history}) => {
   const dispatch = useDispatch()
-  const currentUser = useSelector(state => state.currentUser)
+  const currentUser = useSelector(state => state.currentUserReducer.currentUser)
   
   const handleClick = () => {
     localStorage.removeItem('token')

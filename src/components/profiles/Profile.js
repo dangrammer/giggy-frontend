@@ -1,6 +1,6 @@
 import React from 'react'
 import {useDispatch} from 'react-redux'
-import {profileShow} from '../../actions/profilesActions'
+import {profileShow} from '../../actions/profileActions'
 
 const Profile = (props) => {
   const dispatch = useDispatch()

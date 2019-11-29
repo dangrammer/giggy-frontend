@@ -1,4 +1,6 @@
-const initialState = {}
+const initialState = {
+  currentUser: {}
+}
 
 const currentUserReducer = (state = initialState, action) => {
   switch (action.type) {
@@ -8,10 +10,13 @@ const currentUserReducer = (state = initialState, action) => {
       return state
 
     case 'LOGIN_USER':
-      return {...action.user} 
+      return {...state, currentUser: action.user} 
 
     case 'LOGOUT_USER':
-      return {} 
+      return {...state, currentUser: {}} 
+
+    case 'DELETE_USER':
+      return {...state, currentUser: {}}   
 
     default:
       return state

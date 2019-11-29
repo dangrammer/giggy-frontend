@@ -14,8 +14,8 @@ export const fetchProfiles = () => {
       })
       .then(response => response.json())
       .then(data => {
-        // data.errors ?
-        //   console.log(errors) :
+        data.errors ?
+          console.log(data.errors) :
             dispatch({type: 'FETCH_PROFILES', profiles: data.data})
       })
     }
@@ -38,10 +38,12 @@ export const profileShow = (profileId, history) => {
       })
       .then(response => response.json())
       .then(data => {
-        // data.errors ?
-        //   console.log(errors) :
+        data.errors ?
+          console.log(data.errors) :
             dispatch({type: 'PROFILE_SHOW', profile: data.data})
-            history.push(`/profiles/${profileId}`)
+        if (history) {
+          history.push(`/profiles/${profileId}`)
+        } 
       })
     }
   }

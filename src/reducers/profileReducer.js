@@ -3,7 +3,7 @@ const initialState = {
   profileShow: {}
 }
 
-const profilesReducer = (state = initialState, action) => {
+const profileReducer = (state = initialState, action) => {
   switch (action.type) {
 
     case 'LOADING':
@@ -21,4 +21,4 @@ const profilesReducer = (state = initialState, action) => {
   }  
 }
 
-export default profilesReducer
+export default profileReducer

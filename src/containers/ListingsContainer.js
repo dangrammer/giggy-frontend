@@ -1,7 +1,7 @@
 import React, {useEffect} from 'react'
 import {useDispatch} from 'react-redux'
 import {Switch, Route} from 'react-router-dom'
-import {fetchListings} from '../actions/listingsActions'
+import {fetchListings} from '../actions/listingActions'
 import Listings from '../components/listings/Listings'
 import ListingShow from '../components/listings/ListingShow'
 

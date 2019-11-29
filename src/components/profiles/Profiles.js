@@ -3,7 +3,7 @@ import {useSelector} from 'react-redux'
 import Profile from './Profile'
 
 const Profiles = ({history}) => {
-  const profiles = useSelector(state => state.profilesReducer.profiles)
+  const profiles = useSelector(state => state.profileReducer.profiles)
 
   return (
     <div>

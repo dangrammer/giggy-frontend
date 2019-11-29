@@ -9,7 +9,7 @@ import MainContainer from './containers/MainContainer'
 
 const App = () => {
   const dispatch = useDispatch()
-  const currentUser = useSelector(state => state.currentUser)
+  const currentUser = useSelector(state => state.currentUserReducer.currentUser)
 
   useEffect(() => dispatch(loadProfile()), [dispatch])
 
