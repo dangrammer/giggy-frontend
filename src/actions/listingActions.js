@@ -1,7 +1,7 @@
 export const fetchListings = () => {
-  return (dispatch) => {
-    const token = localStorage.token
+  const token = localStorage.token
 
+  return (dispatch) => {
     dispatch({type: 'LOADING'})
     if (token) {
       fetch('http://localhost:3000/api/v1/listings', {
@@ -23,9 +23,9 @@ export const fetchListings = () => {
 }
 
 export const listingShow = (listingId, history) => {
+  const token = localStorage.token
+  
   return (dispatch) => {
-    const token = localStorage.token
-
     dispatch({type: 'LOADING'})
     if (token) {
       fetch(`http://localhost:3000/api/v1/listings/${listingId}`, {

@@ -1,7 +1,7 @@
 export const fetchCategories = () => {
+  const token = localStorage.token
+  
   return (dispatch) => {
-    const token = localStorage.token
-
     dispatch({type: 'LOADING'})
     if (token) {
       fetch('http://localhost:3000/api/v1/categories', {

@@ -1,7 +1,7 @@
 export const createApplication = (listingId, applicantId) => {
+  const token = localStorage.token
+  
   return (dispatch) => {
-    const token = localStorage.token
-
     dispatch({type: 'LOADING'})
     if (token) {
       fetch('http://localhost:3000/api/v1/applications', {
@@ -20,7 +20,7 @@ export const createApplication = (listingId, applicantId) => {
       .then(data => {
         data.errors ?
           console.log(data.errors) :
-            console.log(data.message)
+            console.log(data.success)
             dispatch(reRenderListingShow(listingId))
       })
     }
@@ -28,9 +28,9 @@ export const createApplication = (listingId, applicantId) => {
 }
 
 const reRenderListingShow = (listingId) => {
-  return (dispatch) => {
-    const token = localStorage.token
+  const token = localStorage.token
 
+  return (dispatch) => {
     dispatch({type: 'LOADING'})
     if (token) {
       fetch(`http://localhost:3000/api/v1/listings/${listingId}`, {

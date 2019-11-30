@@ -18,7 +18,7 @@ const Listing = (props) => {
         `${city}, ${state}` :
           null
       }
-      {` — posted by: ${poster.username}`}
+      {` — posted by: @${poster.username}`}
     </div>
   )
 }

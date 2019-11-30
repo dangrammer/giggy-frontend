@@ -20,7 +20,7 @@ const DeleteAccount = ({history}) => {
       <h4>If you're sure you want to delete your account...</h4>
       <button onClick={deleteAccount}>CONFIRM DELETION</button>
       <h2>Otherwise...</h2>
-      <button onClick={navBack}>Go back to Dashboard</button>
+      <button onClick={navBack}>Back</button>
     </>
   )
 }

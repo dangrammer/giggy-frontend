@@ -70,7 +70,6 @@ const NewListingForm = ({history}) => {
             type='checkbox'
             name='checkbox'
             onChange={event => setPaying(event.target.checked ? true : false)}
-            required
           /> 
         </span>
         <br/>
@@ -79,7 +78,6 @@ const NewListingForm = ({history}) => {
           value={date}
           placeholder='Date'
           onChange={event => setDate(event.target.value)}
-          required
         />
         <br/>
         <input
@@ -87,7 +85,6 @@ const NewListingForm = ({history}) => {
           value={endDate}
           placeholder='End Date'
           onChange={event => setEndDate(event.target.value)}
-          required
         />
         <br/>
         <input
@@ -95,7 +92,6 @@ const NewListingForm = ({history}) => {
           value={city}
           placeholder='City'
           onChange={event => setCity(event.target.value)}
-          required
         />
         <br/>
         <input
@@ -103,7 +99,6 @@ const NewListingForm = ({history}) => {
           value={state}
           placeholder='State'
           onChange={event => setState(event.target.value)}
-          required
         />
         <br/>
         <input
@@ -111,7 +106,6 @@ const NewListingForm = ({history}) => {
           value={zipCode}
           placeholder='Zip Code'
           onChange={event => setZipCode(event.target.value)}
-          required
         />
         <br/>
         <br/>

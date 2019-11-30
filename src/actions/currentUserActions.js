@@ -4,9 +4,9 @@ const loginUser = (user) => ({
 })
 
 export const loadProfile = () => {
-  return (dispatch) => {
-    const token = localStorage.token
+  const token = localStorage.token
 
+  return (dispatch) => {
     dispatch({type: 'LOADING'})
     if (token) {
       fetch('http://localhost:3000/api/v1/profile', {
@@ -83,7 +83,48 @@ export const createUser = (newUser, history) => {
         console.log(data.errors) : // do something more useful with errors
           localStorage.setItem('token', data.token)
           dispatch(loginUser(data.user.data))
-          history.push('/listings')
+          history.push('/dashboard/myProfile/edit')
+    })
+  }
+}
+
+export const updateUser = (profileUpdate, currentUserId, history) => {
+  const token = localStorage.token
+  const {firstName, lastName, userName, imageUrl, cityVar, 
+    stateVar, zipCode, principalRole, principalInstrument,
+    websiteUrl, bioVar, creditsVar} = profileUpdate
+
+  return (dispatch) => {
+    dispatch({type: 'LOADING'})
+    fetch(`http://localhost:3000/api/v1/users/${currentUserId}`, {
+      method: 'PATCH',
+      headers: {
+        'Content-Type': 'application/json',
+        'Accept': 'application/json',
+        'Authorization': `Bearer ${token}`
+      },
+      body: JSON.stringify({
+        first_name: firstName,
+        last_name: lastName,
+        username: userName,
+        image_url: imageUrl,
+        city: cityVar,
+        state: stateVar,
+        zip_code: zipCode,
+        principal_role: principalRole,
+        principal_instrument: principalInstrument,
+        website_url: websiteUrl,
+        bio: bioVar,
+        credits: creditsVar
+      })
+    })
+    .then(response => response.json())
+    .then(data => {
+      data.errors ?
+        console.log(data.errors) : // do something more useful with errors
+          dispatch({type: 'UPDATE_USER', user: data.data})
+          dispatch({type: 'PROFILE_SHOW', profile: data.data}) //borrowed from profileReducer
+          history.goBack()
     })
   }
 }
@@ -93,9 +134,9 @@ export const logoutUser = () => ({
 })
 
 export const deleteUser = (userId, history) => {
-  return (dispatch) => {
-    const token = localStorage.token
+  const token = localStorage.token
 
+  return (dispatch) => {
     dispatch({type: 'LOADING'})
     fetch(`http://localhost:3000/api/v1/users/${userId}`, {
       method: 'DELETE',
