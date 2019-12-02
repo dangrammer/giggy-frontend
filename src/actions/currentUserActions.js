@@ -83,7 +83,7 @@ export const createUser = (newUser, history) => {
         console.log(data.errors) : // do something more useful with errors
           localStorage.setItem('token', data.token)
           dispatch(loginUser(data.user.data))
-          history.push('/dashboard/myProfile/edit')
+          history.push('/dashboard/profile/edit')
     })
   }
 }

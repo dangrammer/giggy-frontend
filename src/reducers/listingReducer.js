@@ -23,6 +23,12 @@ const listingReducer = (state = initialState, action) => {
     case 'LISTING_SHOW':
       return {...state, listingShow: action.listing}
 
+    case 'UPDATE_LISTING':
+      return {...state, listingShow: action.listing}  
+
+    case 'DELETE_LISTING':
+      return {...state, listingShow: {}}
+
     default:
       return state
   }  

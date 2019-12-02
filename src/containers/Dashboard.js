@@ -1,7 +1,10 @@
 import React, {useEffect} from 'react'
 import {useDispatch, useSelector} from 'react-redux'
-import {Switch, Route} from 'react-router-dom'
+import {Switch, Route, Redirect} from 'react-router-dom'
 import DashboardNavBar from '../components/dashboard/DashboardNavBar'
+import MyListings from '../components/dashboard/MyListings'
+import EditListing from '../components/dashboard/EditListing'
+import DeleteListing from '../components/dashboard/DeleteListing'
 import NewListingForm from '../components/dashboard/NewListingForm'
 import ProfileShow from '../components/profiles/ProfileShow'
 import EditProfile from '../components/dashboard/EditProfile'
@@ -21,10 +24,14 @@ const Dashboard = () => {
       <h1>Dashboard</h1>
       <DashboardNavBar/>
       <Switch>
-        <Route exact path='/dashboard/newListing' component={NewListingForm}/>
-        <Route exact path='/dashboard/myProfile' component={ProfileShow}/>
-        <Route exact path='/dashboard/myProfile/edit' component={EditProfile}/>
-        <Route exact path='/dashboard/myProfile/deleteAccount' component={DeleteAccount}/>
+        <Route exact path='/dashboard/listings' component={MyListings}/>
+        <Route exact path='/dashboard/listings/edit' component={EditListing}/>
+        <Route exact path='/dashboard/listings/delete' component={DeleteListing}/>
+        <Route exact path='/dashboard/listings/new' component={NewListingForm}/>
+        <Route exact path='/dashboard/profile' component={ProfileShow}/>
+        <Route exact path='/dashboard/profile/edit' component={EditProfile}/>
+        <Route exact path='/dashboard/profile/delete' component={DeleteAccount}/>
+        <Redirect to='/dashboard/listings'/>
       </Switch>
     </>
   )

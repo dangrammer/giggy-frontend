@@ -2,6 +2,7 @@ import React, {useEffect} from 'react'
 import {useDispatch} from 'react-redux'
 import {Switch, Route} from 'react-router-dom'
 import {fetchListings} from '../actions/listingActions'
+import {fetchCategories} from '../actions/categoryActions'
 import Listings from '../components/listings/Listings'
 import ListingShow from '../components/listings/ListingShow'
 
@@ -9,6 +10,7 @@ const ListingsContainer = () => {
   const dispatch = useDispatch()
 
   useEffect(() => dispatch(fetchListings()), [dispatch])
+  useEffect(() => dispatch(fetchCategories()), [dispatch]) 
 
   return (
     <Switch>

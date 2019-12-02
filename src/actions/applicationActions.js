@@ -1,3 +1,6 @@
+import {loadProfile} from './currentUserActions'
+import {fetchListings} from './listingActions'
+
 export const createApplication = (listingId, applicantId) => {
   const token = localStorage.token
   
@@ -21,6 +24,8 @@ export const createApplication = (listingId, applicantId) => {
         data.errors ?
           console.log(data.errors) :
             console.log(data.success)
+            dispatch(loadProfile())
+            dispatch(fetchListings())
             dispatch(reRenderListingShow(listingId))
       })
     }

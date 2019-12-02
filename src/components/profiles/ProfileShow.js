@@ -14,11 +14,11 @@ const ProfileShow = ({history}) => {
   }
 
   const editProfile = () => {
-    history.push('/dashboard/myProfile/edit')
+    history.push('/dashboard/profile/edit')
   }
 
   const deleteConfirm = () => {
-    history.push('/dashboard/myProfile/deleteAccount')
+    history.push('/dashboard/profile/delete')
   }
 
   return (
@@ -28,7 +28,7 @@ const ProfileShow = ({history}) => {
       {location}<br/>
       {principal_role ? `Principal Role: ${principal_role}` : null}<br/>
       {principal_instrument ? `Principal Instrument: ${principal_instrument}` : null}<br/>
-      {website_url ? <a href={website_url}>Website</a> : null}<br/>
+      {website_url ? <a href={website_url} target='_blank' rel='noopener noreferrer'>Website</a> : null}<br/>
       {member_since}<br/>
       {bio ? `Bio: ${bio}` : null}<br/>
       {credits ? `Credits: ${credits}` : null}<br/>

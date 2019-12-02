@@ -83,3 +83,62 @@ export const createListing = (newListing, history) => {
     })
   }
 }
+
+export const updateListing = (listing, listingId, history) => {
+  const token = localStorage.token
+  const {subjectVar, descriptionVar, dateVar, endDate, 
+    cityVar, stateVar, zipCode, payingVar, categoryId} = listing
+
+  return (dispatch) => {
+    dispatch({type: 'LOADING'})
+    fetch(`http://localhost:3000/api/v1/listings/${listingId}`, {
+      method: 'PATCH',
+      headers: {
+        'Content-Type': 'application/json',
+        'Accept': 'application/json',
+        'Authorization': `Bearer ${token}`
+      },
+      body: JSON.stringify({
+        subject: subjectVar,
+        description: descriptionVar,
+        date: dateVar,
+        end_date: endDate,
+        city: cityVar,
+        state: stateVar,
+        zip_code: zipCode,
+        paying: payingVar,
+        category_id: categoryId
+      })
+    })
+    .then(response => response.json())
+    .then(data => {
+      data.errors ?
+        console.log(data.errors) : // do something more useful with errors
+          dispatch({type: 'UPDATE_LISTING', listing: data.data})
+          history.goBack()
+    })
+  }
+}
+
+export const deleteListing = (listingId, history) => {
+  const token = localStorage.token
+
+  return (dispatch) => {
+    dispatch({type: 'LOADING'})
+    fetch(`http://localhost:3000/api/v1/listings/${listingId}`, {
+      method: 'DELETE',
+      headers: {
+        'Content-Type': 'application/json',
+        'Accept': 'application/json',
+        'Authorization': `Bearer ${token}`
+      }
+    })
+    .then(response => response.json())
+    .then(data => {
+      console.log(data.success)
+      dispatch({type: 'DELETE_LISTING'})
+      dispatch(fetchListings())
+      history.push('/dashboard/listings')
+    })
+  }
+}

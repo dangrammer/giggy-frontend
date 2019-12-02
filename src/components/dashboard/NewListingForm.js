@@ -69,7 +69,8 @@ const NewListingForm = ({history}) => {
           <input
             type='checkbox'
             name='checkbox'
-            onChange={event => setPaying(event.target.checked ? true : false)}
+            checked={paying}
+            onChange={event => setPaying(event.target.checked)}
           /> 
         </span>
         <br/>
