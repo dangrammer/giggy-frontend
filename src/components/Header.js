@@ -13,11 +13,11 @@ const Header = ({history}) => {
   }
  
   return (
-    <div>
-      <h2>Giggy</h2>
+    <div id='header'>
+      <h1 id='site-title'>Giggy</h1>
       <span>
-        {`Welcome, ${currentUser.attributes.first_name}!`}
-        <button onClick={handleClick}>Log Out</button>
+        {`Welcome, ${currentUser.attributes.first_name}! `}
+        <button id='log-out-btn' onClick={handleClick}>Log Out</button>
       </span>
     </div>
   )

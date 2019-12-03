@@ -26,12 +26,15 @@ const ProfileShow = ({history}) => {
       <img src={image_url} alt='Profile' height='400' width='600'/><br/>
       {full_name} {`@${username}`}<br/>
       {location}<br/>
+      {member_since}<br/>
+      <br/>
       {principal_role ? `Principal Role: ${principal_role}` : null}<br/>
       {principal_instrument ? `Principal Instrument: ${principal_instrument}` : null}<br/>
       {website_url ? <a href={website_url} target='_blank' rel='noopener noreferrer'>Website</a> : null}<br/>
-      {member_since}<br/>
+      <br/>
       {bio ? `Bio: ${bio}` : null}<br/>
       {credits ? `Credits: ${credits}` : null}<br/>
+      <br/>
       {currentUser.id === profile.id ?
         <>
           {listingsCount.length} {listingsCount.length === 1 ? 'Listing' : 'Listings'} Posted<br/>

@@ -22,6 +22,11 @@ export const fetchListings = () => {
   }
 }
 
+export const filterListings = (filter) => ({
+  type: 'FILTER_LISTINGS',
+  filter
+})
+
 export const listingShow = (listingId, history) => {
   const token = localStorage.token
   

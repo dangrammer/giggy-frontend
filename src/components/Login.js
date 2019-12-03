@@ -1,7 +1,7 @@
 import React, {useState} from 'react'
 import {validateUser} from '../actions/currentUserActions'
 import {createUser} from '../actions/currentUserActions'
-import {useDispatch} from 'react-redux'
+import {useDispatch} from 'react-redux' //, useSelector
 
 const Login = ({history}) => {
   const dispatch = useDispatch()
@@ -14,6 +14,7 @@ const Login = ({history}) => {
   const [state, setState] = useState('')
   const [zipCode, setZipCode] = useState('')
   const [login, setLogin] = useState(true)
+  // const errors = useSelector(state => state.currentUserReducer.errors)
   
   const clearForm = () => {
     setFirstName('')
@@ -44,9 +45,10 @@ const Login = ({history}) => {
     }  
     clearForm()
   }
-  
+
   return (
     <div>
+      {/* <h4 style={{color: 'red'}}>{errors}</h4> */}
       <form onSubmit={handleSubmit}>
         <input
           type='text'

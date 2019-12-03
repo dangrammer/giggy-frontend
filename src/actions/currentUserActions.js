@@ -45,12 +45,14 @@ export const validateUser = (returningUser, history) => {
     })
     .then(response => response.json())
     .then(data => {
-      data.errors ?
-        console.log(data.errors) : // do something more useful with errors
-          localStorage.setItem('token', data.token)
-          dispatch(loginUser(data.user.data))
-          history.push('/listings')
-    })
+      if (data.errors) {
+        dispatch({type: 'USER_ERRORS', errors: data.errors})
+      } else {
+        localStorage.setItem('token', data.token)
+        dispatch(loginUser(data.user.data))
+        history.push('/listings')
+      }
+    }) 
   }
 }
 
@@ -79,11 +81,13 @@ export const createUser = (newUser, history) => {
     })
     .then(response => response.json())
     .then(data => {
-      data.errors ?
-        console.log(data.errors) : // do something more useful with errors
-          localStorage.setItem('token', data.token)
-          dispatch(loginUser(data.user.data))
-          history.push('/dashboard/profile/edit')
+      if (data.errors) {
+        dispatch({type: 'USER_ERRORS', errors: data.errors})
+      } else {
+        localStorage.setItem('token', data.token)
+        dispatch(loginUser(data.user.data))
+        history.push('/dashboard/profile/edit')
+      }
     })
   }
 }

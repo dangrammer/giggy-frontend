@@ -14,7 +14,7 @@ const Listing = (props) => {
     <div onClick={handleClick}>
       {`${posting_date} — ${subject}`}
       {` — ${paying ? '💲' : '—'} — `}
-      {city !== null && state !== null ?
+      {city && state ?
         `${city}, ${state}` :
           null
       }

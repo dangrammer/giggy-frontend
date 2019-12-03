@@ -1,13 +1,14 @@
 import React from 'react'
-import {Link} from 'react-router-dom'
+import {NavLink} from 'react-router-dom'
 
 const DashboardNavBar = () => {
+  const style = {textShadow: '3px 3px 3px #d4e6be', textDecoration: 'none'}
   
   return (
-    <div>
-      <Link to='/dashboard/listings'>My Listings</Link> 
-      <Link to='/dashboard/listings/new'>New Listing</Link>
-      <Link to='/dashboard/profile'>My Profile</Link>
+    <div id='dash-nav-bar'>
+      <NavLink className='dash-nav-link' activeStyle={style} to='/dashboard/listings'>My Listings</NavLink> 
+      <NavLink className='dash-nav-link' activeStyle={style} strict to='/dashboard/listings/new'>New Listing</NavLink>
+      <NavLink className='dash-nav-link' activeStyle={style} to='/dashboard/profile'>My Profile</NavLink>
     </div>
   )
 }

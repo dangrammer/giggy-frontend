@@ -140,8 +140,7 @@ const EditProfile = ({history}) => {
         />
         <br/>
         <label htmlFor='bio'>Bio: </label>
-        <input
-          type='text'
+        <textarea
           name='bio'
           value={bioVar ? bioVar : ''}
           placeholder='Bio'

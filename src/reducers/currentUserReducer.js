@@ -1,5 +1,6 @@
 const initialState = {
-  currentUser: {}
+  currentUser: {},
+  errors: []
 }
 
 const currentUserReducer = (state = initialState, action) => {
@@ -8,6 +9,9 @@ const currentUserReducer = (state = initialState, action) => {
     case 'LOADING':
       console.log('loading')
       return state
+    
+    case 'USER_ERRORS':
+      return {...state, errors: action.errors}  
 
     case 'LOGIN_USER':
       return {...state, currentUser: action.user} 
@@ -16,7 +20,7 @@ const currentUserReducer = (state = initialState, action) => {
       return {...state, currentUser: action.user}
 
     case 'LOGOUT_USER':
-      return {...state, currentUser: {}} 
+      return {...state, currentUser: {}, errors: []} 
 
     case 'DELETE_USER':
       return {...state, currentUser: {}}   
