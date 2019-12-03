@@ -6,10 +6,10 @@ import Login from './Login'
 const Welcome = () => {
   
   return (
-    <>
+    <div id='welcome'>
       <About/>
       <Route component={Login}/>
-    </> 
+    </div> 
   )
 }
 

@@ -47,18 +47,19 @@ const Login = ({history}) => {
   }
 
   return (
-    <div>
+    <div id='login'>
       {/* <h4 style={{color: 'red'}}>{errors}</h4> */}
-      <form onSubmit={handleSubmit}>
+      <form id='login-form' onSubmit={handleSubmit}>
         <input
+          className='login-input'
           type='text'
           value={userName}
           placeholder='Username'
           onChange={event => setUserName(event.target.value)}
           required
         />
-        <br/>
         <input
+          className='login-input'
           type='password'
           value={password}
           placeholder='Password'
@@ -67,48 +68,48 @@ const Login = ({history}) => {
         />
         {login ? null :
           <>
-            <br/>
             <input
+              className='login-input'
               type='text'
               value={firstName}
               placeholder='First Name'
               onChange={event => setFirstName(event.target.value)}
               required
             />
-            <br/>
             <input
+              className='login-input'
               type='text'
               value={lastName}
               placeholder='Last Name'
               onChange={event => setLastName(event.target.value)}
               required
             />
-            <br/>
             <input
+              className='login-input'
               type='text'
               value={imageUrl}
               placeholder='Image URL'
               onChange={event => setImageUrl(event.target.value)}
               required
             />
-            <br/>
             <input
+              className='login-input'
               type='text'
               value={city}
               placeholder='City'
               onChange={event => setCity(event.target.value)}
               required
             />
-            <br/>
             <input
+              className='login-input'
               type='text'
               value={state}
               placeholder='State'
               onChange={event => setState(event.target.value)}
               required
             />
-            <br/>
             <input
+              className='login-input'
               type='text'
               value={zipCode}
               placeholder='Zip Code'
@@ -118,13 +119,13 @@ const Login = ({history}) => {
           </>
         }
         <br/>
-        <input type='submit' value={login ? 'Log In' : 'Create Account'}/>
+        <input id='login-submit' type='submit' value={login ? 'Log In' : 'Create Account'}/>
       </form>
       <br/>
-      <span>
-        {login ? 'Need to create an account?' : 'Already have an account?'}
-        <button onClick={handleClick}>{login ? 'Sign Up' : 'Log In'}</button>
-      </span>
+      <br/>
+      <span id='login-toggle'>{login ? 'Need to create an account? ' : 'Already have an account? '}</span>
+      <br/>
+      <button id='login-toggle-btn' onClick={handleClick}>{login ? 'Sign Up' : 'Log In'}</button>
     </div>
   )
 }

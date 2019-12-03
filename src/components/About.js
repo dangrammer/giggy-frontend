@@ -2,9 +2,14 @@ import React from 'react'
 
 const About = () => {
   return (
-    <div>
-      <h1>Welcome to Giggy!</h1>
-      <p>Get connected with music opportunities, directly and transparently.</p>
+    <div id='about'>
+      <span>
+        <span id='welcome-title'>Giggy</span>
+        <span id='beta-tag'>beta</span>
+      </span>
+      <p>
+        Get connected with music opportunities, directly and transparently.
+      </p>
     </div> 
   )
 }
