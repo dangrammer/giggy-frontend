@@ -23,7 +23,7 @@ const ProfileShow = ({history}) => {
 
   return (
     <div className='profile-show'>
-      <img id='profile-photo' src={image_url} alt='Profile' height='400' width='600'/><br/>
+      <img src={image_url} alt='Profile' height='400' width='600'/><br/>
       <span id='profile-info'>
         {full_name} {`@${username}`}<br/>
         {location}<br/>

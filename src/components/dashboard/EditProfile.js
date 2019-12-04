@@ -9,11 +9,11 @@ const EditProfile = ({history}) => {
   const {first_name, last_name, username, image_url, 
     city, state, zip_code, principal_role, principal_instrument,
     website_url, bio, credits} = currentUser.attributes
-    
+  
   const [firstName, setFirstName] = useState(first_name)
   const [lastName, setLastName] = useState(last_name)
   const [userName, setUserName] = useState(username)
-  // const [password, setPassword] = useState('')
+  // const [password, setPassword] = useState('') ? How to access password ?
   const [imageUrl, setImageUrl] = useState(image_url)
   const [cityVar, setCityVar] = useState(city)
   const [stateVar, setStateVar] = useState(state)
@@ -36,13 +36,13 @@ const EditProfile = ({history}) => {
 
   //review image display based on state
   return (
-    <div>
-      <h1>Edit Profile</h1>
+    <div className='profile-show'>
       <img src={imageUrl ? imageUrl : image_url} alt='Profile' height='400' width='600'/>
       <br/>
-      <form onSubmit={handleSubmit}>
-        <label htmlFor='imageUrl'>Image URL: </label>
+      <form id='profile-form' onSubmit={handleSubmit}>
+        <label htmlFor='imageUrl'>Image URL</label>
         <input
+          className='form-input'
           type='text'
           name='imageUrl'
           value={imageUrl}
@@ -51,8 +51,9 @@ const EditProfile = ({history}) => {
         />
         <br/>
         <br/>
-        <label htmlFor='firstName'>First Name: </label>
+        <label htmlFor='firstName'>First Name</label>
         <input
+          className='form-input'
           type='text'
           name='firstName'
           value={firstName}
@@ -60,8 +61,9 @@ const EditProfile = ({history}) => {
           onChange={event => setFirstName(event.target.value)}
         />
         <br/>
-        <label htmlFor='lastName'>Last Name: </label>
+        <label htmlFor='lastName'>Last Name</label>
         <input
+          className='form-input'
           type='text'
           name='lastName'
           value={lastName}
@@ -69,8 +71,9 @@ const EditProfile = ({history}) => {
           onChange={event => setLastName(event.target.value)}
         />
         <br/>
-        <label htmlFor='username'>Username: </label>
+        <label htmlFor='username'>Username</label>
         <input
+          className='form-input'
           type='text'
           name='username'
           value={userName}
@@ -85,8 +88,9 @@ const EditProfile = ({history}) => {
           onChange={event => setPassword(event.target.value)}
         />
         <br/> */}
-        <label htmlFor='city'>City: </label>
+        <label htmlFor='city'>City</label>
         <input
+          className='form-input'
           type='text'
           name='city'
           value={cityVar}
@@ -94,8 +98,9 @@ const EditProfile = ({history}) => {
           onChange={event => setCityVar(event.target.value)}
         />
         <br/>
-        <label htmlFor='state'>State: </label>
+        <label htmlFor='state'>State</label>
         <input
+          className='form-input'
           type='text'
           name='state'
           value={stateVar}
@@ -103,8 +108,9 @@ const EditProfile = ({history}) => {
           onChange={event => setStateVar(event.target.value)}
         />
         <br/>
-        <label htmlFor='zipCode'>Zip Code: </label>
+        <label htmlFor='zipCode'>Zip Code</label>
         <input
+          className='form-input'
           type='text'
           name='zipCode'
           value={zipCode}
@@ -112,8 +118,9 @@ const EditProfile = ({history}) => {
           onChange={event => setZipCode(event.target.value)}
         />
         <br/>
-        <label htmlFor='principalRole'>Principal Role: </label>
+        <label htmlFor='principalRole'>Principal Role</label>
         <input
+          className='form-input'
           type='text'
           name='principalRole'
           value={principalRole ? principalRole : ''}
@@ -123,6 +130,7 @@ const EditProfile = ({history}) => {
         <br/>
         <label htmlFor='principalInstrument'>Principal Instrument: </label>
         <input
+          className='form-input'
           type='text'
           name='principalInstrument'
           value={principalInstrument ? principalInstrument : ''}
@@ -130,8 +138,9 @@ const EditProfile = ({history}) => {
           onChange={event => setPrincipalInstrument(event.target.value)}
         />
         <br/>
-        <label htmlFor='websiteUrl'>Website URL: </label>
+        <label htmlFor='websiteUrl'>Website URL</label>
         <input
+          className='form-input'
           type='text'
           name='websiteUrl'
           value={websiteUrl ? websiteUrl : ''}
@@ -139,16 +148,18 @@ const EditProfile = ({history}) => {
           onChange={event => setWebsiteUrl(event.target.value)}
         />
         <br/>
-        <label htmlFor='bio'>Bio: </label>
+        <label htmlFor='bio'>Bio</label>
         <textarea
+          className='form-text-area'
           name='bio'
           value={bioVar ? bioVar : ''}
           placeholder='Bio'
           onChange={event => setBioVar(event.target.value)}
         />
         <br/>
-        <label htmlFor='credits'>Credits: </label>
+        <label htmlFor='credits'>Credits</label>
         <input
+          className='form-input'
           type='text'
           name='credits'
           value={creditsVar ? creditsVar : ''}
@@ -157,7 +168,10 @@ const EditProfile = ({history}) => {
         />
         <br/>
         <br/>
-        <input type='submit' value='Save Edits'/>
+        <input 
+          className='form-input form-submit btn'
+          type='submit' 
+          value='Save Edits'/>
       </form>
     </div>
   )

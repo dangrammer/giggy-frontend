@@ -57,8 +57,9 @@ const NewListingForm = ({history}) => {
           /> 
         </span>
         <br/>
+        <br/>
         <input
-          className='listing-form-input'
+          className='form-input'
           type='text'
           value={subject}
           placeholder='Subject'
@@ -67,7 +68,7 @@ const NewListingForm = ({history}) => {
         />
         <br/>
         <textarea
-          className='listing-form-text-area'
+          className='form-text-area'
           value={description}
           placeholder='Description'
           onChange={event => setDescription(event.target.value)}
@@ -75,7 +76,7 @@ const NewListingForm = ({history}) => {
         />
         <br/>
         <input
-          className='listing-form-input'
+          className='form-input'
           type='text'
           value={date}
           placeholder='Date'
@@ -83,7 +84,7 @@ const NewListingForm = ({history}) => {
         />
         <br/>
         <input
-          className='listing-form-input'
+          className='form-input'
           type='text'
           value={endDate}
           placeholder='End Date'
@@ -91,7 +92,7 @@ const NewListingForm = ({history}) => {
         />
         <br/>
         <input
-          className='listing-form-input'
+          className='form-input'
           type='text'
           value={city}
           placeholder='City'
@@ -99,7 +100,7 @@ const NewListingForm = ({history}) => {
         />
         <br/>
         <input
-          className='listing-form-input'
+          className='form-input'
           type='text'
           value={state}
           placeholder='State'
@@ -107,7 +108,7 @@ const NewListingForm = ({history}) => {
         />
         <br/>
         <input
-          className='listing-form-input'
+          className='form-input'
           type='text'
           value={zipCode}
           placeholder='Zip Code'
@@ -116,7 +117,7 @@ const NewListingForm = ({history}) => {
         <br/>
         <br/>
         <input 
-          className='listing-form-input btn listing-form-submit' 
+          className='form-input form-submit btn' 
           type='submit' 
           value='Create Listing'
         />

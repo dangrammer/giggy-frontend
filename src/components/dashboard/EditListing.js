@@ -41,7 +41,7 @@ const EditListing = ({history}) => {
           )}
         </select>
         <span>
-          <label htmlFor='checkbox'>Paying</label>
+          <label htmlFor='checkbox'> Paying</label>
           <input
             type='checkbox'
             name='checkbox'
@@ -50,10 +50,11 @@ const EditListing = ({history}) => {
           /> 
         </span>
         <br/>
+        <br/>
         <label htmlFor='subject'>Subject</label>
         <br/>
         <input
-          className='listing-form-input'
+          className='form-input'
           type='text'
           name='subject'
           value={subjectVar}
@@ -65,7 +66,7 @@ const EditListing = ({history}) => {
         <label htmlFor='description'>Description</label>
         <br/>
         <textarea
-          className='listing-form-text-area'
+          className='form-text-area'
           name='description'
           value={descriptionVar}
           placeholder='Description'
@@ -76,7 +77,7 @@ const EditListing = ({history}) => {
         <label htmlFor='date'>Date</label>
         <br/>
         <input
-          className='listing-form-input'
+          className='form-input'
           type='text'
           value={dateVar ? dateVar : ''}
           placeholder='Date'
@@ -86,7 +87,7 @@ const EditListing = ({history}) => {
         <label htmlFor='endDate'>End Date</label>
         <br/>
         <input
-          className='listing-form-input'
+          className='form-input'
           type='text'
           name='endDate'
           value={endDate ? endDate : ''}
@@ -97,7 +98,7 @@ const EditListing = ({history}) => {
         <label htmlFor='city'>City</label>
         <br/>
         <input
-          className='listing-form-input'
+          className='form-input'
           type='text'
           name='City'
           value={cityVar ? cityVar : ''}
@@ -108,7 +109,7 @@ const EditListing = ({history}) => {
         <label htmlFor='state'>State</label>
         <br/>
         <input
-          className='listing-form-input'
+          className='form-input'
           type='text'
           name='state'
           value={stateVar ? stateVar : ''}
@@ -119,7 +120,7 @@ const EditListing = ({history}) => {
         <label htmlFor='zipCode'>Zip Code</label>
         <br/>
         <input
-          className='listing-form-input'
+          className='form-input'
           type='text'
           name='zipCode'
           value={zipCode ? zipCode : ''}
@@ -129,7 +130,7 @@ const EditListing = ({history}) => {
         <br/>
         <br/>
         <input 
-          className='listing-form-input btn listing-form-submit'
+          className='form-input form-submit btn'
           type='submit' 
           value='Save Edit'
         />
