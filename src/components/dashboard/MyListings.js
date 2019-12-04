@@ -16,10 +16,9 @@ const MyListings = ({history}) => {
   }
   
   return (
-    <div>
-      <h1>My Listings</h1>
-      <button onClick={handleClick}>{posted ? 'Show Listings Applied To' : 'Show Listings Posted'}</button>
-      <h4>{posted ? 'Listings Posted' : 'Listings Applied To'}</h4>
+    <div id='my-listings'>
+      <button className='btn' onClick={handleClick}>{posted ? 'Show Listings Applied To' : 'Show Listings Posted'}</button>
+      <h4 className='listing-heading'>{posted ? 'Listings Posted' : 'Listings Applied To'}</h4>
       {setListings.map(listing => 
         <Listing key={listing.id} listing={listing} history={history}/>
       )}

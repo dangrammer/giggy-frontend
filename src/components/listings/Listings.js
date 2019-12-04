@@ -22,8 +22,7 @@ const Listings = ({history}) => {
   }
 
   return (
-    <div>
-      <h1>Listings</h1>
+    <div id='listings'>
       <select defaultValue={filter} onChange={(event) => handleChange(event)}>
         <option value='all'>All</option>
         {categories.map(category => 

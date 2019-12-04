@@ -11,14 +11,12 @@ const Listing = (props) => {
   }
 
   return (
-    <div onClick={handleClick}>
-      {`${posting_date} — ${subject}`}
-      {` — ${paying ? '💲' : '—'} — `}
-      {city && state ?
-        `${city}, ${state}` :
-          null
-      }
-      {` — posted by: @${poster.username}`}
+    <div className='listing' onClick={handleClick}>
+      <span className='center-center'>{posting_date}</span>
+      <span className='center-center'>{paying ? '💲' : null}</span>
+      <span className='center-left'>{subject}</span>
+      <span className='center-left'>{city && state ? `${city}, ${state}` : null}</span>
+      <span className='center-left'>{`@${poster.username}`}</span>
     </div>
   )
 }

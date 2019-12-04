@@ -15,13 +15,13 @@ const DeleteListing = ({history}) => {
   }
   
   return (
-    <>
-      <h1>Delete Listing</h1>
-      <h4>If you're sure you want to delete this listing...</h4>
-      <button onClick={handleClick}>CONFIRM DELETION</button>
-      <h2>Otherwise...</h2>
-      <button onClick={navBack}>Back</button>
-    </>
+    <div className='delete-set'>
+      <h1 className='delete delete-heading'>Delete Listing</h1>
+      <h4 className='delete'>If you're sure you want to delete this listing...</h4>
+      <button className='delete btn' onClick={handleClick}>CONFIRM DELETION</button>
+      <h2 className='delete'>Otherwise...</h2>
+      <button className='delete btn' onClick={navBack}>Back</button>
+    </div>
   )
 }
 

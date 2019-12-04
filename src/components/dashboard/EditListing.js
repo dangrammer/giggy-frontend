@@ -32,35 +32,14 @@ const EditListing = ({history}) => {
   }
 
   return (
-    <>
-      <h1>Edit Listing</h1>
-      <form onSubmit={handleSubmit}>
+    <div id='listing-form'>
+      <form className='center-center' onSubmit={handleSubmit}>
         <select defaultValue={categoryName} onChange={event => setCategoryId(event.target.value)} required>
           <option disabled hidden>{categoryName}</option>
           {categories.map(category => 
             <option key={category.id} value={category.id}>{category.attributes.name}</option>
           )}
         </select>
-        <br/>
-        <label htmlFor='subject'>Subject</label>
-        <input
-          type='text'
-          name='subject'
-          value={subjectVar}
-          placeholder='Subject'
-          onChange={event => setSubjectVar(event.target.value)}
-          required
-        />
-        <br/>
-        <label htmlFor='description'>Description</label>
-        <textarea
-          name='description'
-          value={descriptionVar}
-          placeholder='Description'
-          onChange={event => setDescriptionVar(event.target.value)}
-          required
-        />
-        <br/>
         <span>
           <label htmlFor='checkbox'>Paying</label>
           <input
@@ -71,8 +50,33 @@ const EditListing = ({history}) => {
           /> 
         </span>
         <br/>
-        <label htmlFor='date'>Date</label>
+        <label htmlFor='subject'>Subject</label>
+        <br/>
         <input
+          className='listing-form-input'
+          type='text'
+          name='subject'
+          value={subjectVar}
+          placeholder='Subject'
+          onChange={event => setSubjectVar(event.target.value)}
+          required
+        />
+        <br/>
+        <label htmlFor='description'>Description</label>
+        <br/>
+        <textarea
+          className='listing-form-text-area'
+          name='description'
+          value={descriptionVar}
+          placeholder='Description'
+          onChange={event => setDescriptionVar(event.target.value)}
+          required
+        />
+        <br/>
+        <label htmlFor='date'>Date</label>
+        <br/>
+        <input
+          className='listing-form-input'
           type='text'
           value={dateVar ? dateVar : ''}
           placeholder='Date'
@@ -80,7 +84,9 @@ const EditListing = ({history}) => {
         />
         <br/>
         <label htmlFor='endDate'>End Date</label>
+        <br/>
         <input
+          className='listing-form-input'
           type='text'
           name='endDate'
           value={endDate ? endDate : ''}
@@ -89,7 +95,9 @@ const EditListing = ({history}) => {
         />
         <br/>
         <label htmlFor='city'>City</label>
+        <br/>
         <input
+          className='listing-form-input'
           type='text'
           name='City'
           value={cityVar ? cityVar : ''}
@@ -98,7 +106,9 @@ const EditListing = ({history}) => {
         />
         <br/>
         <label htmlFor='state'>State</label>
+        <br/>
         <input
+          className='listing-form-input'
           type='text'
           name='state'
           value={stateVar ? stateVar : ''}
@@ -107,7 +117,9 @@ const EditListing = ({history}) => {
         />
         <br/>
         <label htmlFor='zipCode'>Zip Code</label>
+        <br/>
         <input
+          className='listing-form-input'
           type='text'
           name='zipCode'
           value={zipCode ? zipCode : ''}
@@ -116,9 +128,13 @@ const EditListing = ({history}) => {
         />
         <br/>
         <br/>
-        <input type='submit' value='Save Edit'/>
+        <input 
+          className='listing-form-input btn listing-form-submit'
+          type='submit' 
+          value='Save Edit'
+        />
       </form>
-    </>
+    </div>
   )
 }
 

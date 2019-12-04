@@ -23,6 +23,39 @@ button:focus {
   outline: none;
 }
 
+.center-center {
+  align-self: center;
+  justify-self: center;
+}
+
+.center-left {
+  align-self: center;
+}
+
+.profile-link {
+  color: #544361;
+  text-shadow: 1px 1px 1px #9882a8;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.profile-link:hover {
+  text-shadow: 1px 1px 1px #d8adff;
+}
+
+.btn {
+  font-size: 15px;
+  color: #f7ffed;
+  background-color: #544361;
+  border: solid 1px #9882a8;
+  border-radius: 25px 25px 25px 25px;
+  cursor: pointer;
+}
+
+.btn:hover {
+  text-shadow: 1px 1px 1px #9882a8;
+}
+
 
 /* <Header/> */
 
@@ -52,15 +85,6 @@ button:focus {
 
 #home-icon {
   font-size: 20px;
-}
-
-#log-out-btn {
-  font-size: 15px;
-  color: #d4e6be;
-  background-color: #544361;
-  text-shadow: 1px 1px 1px #9882a8;
-  border: solid 1px #9882a8;
-  border-radius: 25px 25px 25px 25px;
 }
 
 
@@ -120,7 +144,7 @@ button:focus {
 }
 
 
-/* <Aout/> */
+/* <About/> */
 
 #about {
   padding-top: 50px;
@@ -160,6 +184,7 @@ button:focus {
 }
 
 .login-input {
+  margin: 2.5px;
   font-size: 30px;
 }
 
@@ -173,6 +198,11 @@ button:focus {
   border: solid 2px #9882a8;
   border-radius: 25px 25px 25px 25px;
   cursor: pointer;
+}
+
+#login-submit:hover {
+  text-shadow: 2px 2px 2px #bfa5d6;
+  border: solid 2px #bfa5d6;
 }
 
 #login-toggle {
@@ -189,4 +219,155 @@ button:focus {
   border: solid 1px #9882a8;
   border-radius: 25px 25px 25px 25px;
   cursor: pointer;
+}
+
+#login-toggle-btn:hover {
+  text-shadow: 2px 2px 2px #bfa5d6;
+  border: solid 2px #bfa5d6;
+}
+
+
+/* <Listings/> */
+
+#listings {
+  margin-top: 110px;
+}
+
+/* <Listing/> */
+
+.listing {
+  display: grid;
+  grid-template-columns: 0.7fr 0.5fr 8fr 2fr 2fr;
+  align-content: center;
+  height: 30px;
+  padding-top: 5px;
+  padding-bottom: 5px;  
+  color: #544361;
+  border-top: solid 1px #9882a8;
+  cursor: pointer;
+}
+
+
+/* <ListingShow/> */
+
+.listing-show {
+  margin-top: 150px;
+  padding-left: 50px;
+  color: #544361;
+}
+
+
+/* <Profiles/> */
+
+#profiles {
+  margin-top: 110px;
+}
+
+
+/* <Profile/> */
+
+#profile {
+  display: grid;
+  grid-template-columns: 1fr 2fr 2fr 1fr;
+  align-content: center;
+  height: 30px;
+  padding-top: 5px;
+  padding-bottom: 5px;  
+  color: #544361;
+  border-top: solid 1px #9882a8;
+  cursor: pointer;
+}
+
+
+/* <ProfileShow/> */
+
+.profile-show {
+  display: flex; 
+  flex-direction: row; 
+  justify-content: center; 
+  margin-top: 110px;
+  padding-top: 50px;
+  color: #544361;
+}
+
+#profile-info {
+  padding: 10px;
+  border: solid 2px #9882a8;
+}
+
+
+/* <MyListings/> */
+
+#my-listings {
+  margin-top: 100px;
+  color: #544361;
+}
+
+.listing-heading {
+  text-shadow: 2px 2px 5px #9882a8;
+}
+
+
+/* <DeleteListing/> & <DeleteAccount/> */
+
+.delete-set {
+  display: flex; 
+  flex-direction: column; 
+  margin-top: 110px;
+  color: #544361;
+}
+
+.delete {
+  align-self: center;
+  font-size: 20px;
+}
+
+.delete-heading {
+  font-size: 80px;
+  /* color: #544361; */
+  text-shadow: 3px 3px 3px #9882a8;
+}
+
+.delete-account-heading {
+  font-family: 'Monoton', cursive;
+  font-size: 80px;
+  /* color: #544361; */
+  text-shadow: 3px 3px 3px #9882a8;
+}
+
+
+/* <NewListingForm/> & <EditListing/> */
+
+#listing-form {
+  display: flex; 
+  flex-direction: column; 
+  justify-content: center;
+  align-self: center;
+  margin-top: 80px;
+  color: #544361;
+}
+
+.listing-form-input {
+  width: 600px;
+  margin: 2.5px;
+  font-size: 30px;
+}
+
+.listing-form-text-area {
+  height: 100px;
+  width: 600px;
+  font-size: 30px;
+  color: #544361;
+  background-color: #f7ffed;
+  border-radius: 5px 5px 5px 5px;
+}
+
+.listing-form-submit {
+  text-shadow: 2px 2px 2px #9882a8;
+  border: solid 2px #9882a8;
+}
+
+.listing-form-submit:hover {
+  text-shadow: 2px 2px 2px #bfa5d6;
+  border: solid 2px #bfa5d6;
 }

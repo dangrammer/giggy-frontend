@@ -37,32 +37,34 @@ const ListingShow = ({history}) => {
   }
   
   return (
-    <div>
+    <div className='listing-show'>
       <h1>{subject}</h1>
       Posted on: {posting_date}<br/>  
-      Posted by: <span style={{color: "blue"}} onClick={viewProfile}>@{poster.username}</span><br/>
+      Posted by: <span className='profile-link' onClick={viewProfile}>@{poster.username}</span><br/>
       Posting Category: {categoryName}<br/>
       {`${applicants.length} ${applicants.length === 1 ? 'Applicant' : 'Applicants'}`}<br/>
       {paying ? 'Paying' : 'Non-paying'}<br/>
       {date ? end_date ? `Gig date: ${date} to ${end_date}` : `Gig date: ${date}` : null}<br/>
-      <br/>
       {city && state && zip_code ? `Location: ${city}, ${state} ${zip_code}` : null}<br/>
       <br/>
       {description}<br/>
       <br/>
+      <br/>
       {poster.id === currentUserId ?
         <>
-          <button onClick={editListing}>Edit Listing</button>
+          <button className='btn' onClick={editListing}>Edit Listing</button>
           <br/>
-          <button onClick={deleteConfirm}>Delete Listing</button>
+          <br/>
+          <button className='btn' onClick={deleteConfirm}>Delete Listing</button>
           <br/>
         </> :
           applicantIds.includes(currentUserId) ? 
-            'You\'ve applied!' :
-              <button onClick={applyToListing}>Apply for this opportunity</button>
+            <strong>You've applied!</strong> :
+              <button className='btn' onClick={applyToListing}>Apply for this opportunity</button>
       }
       <br/>
-      <button onClick={navBack}>Back</button>
+      <br/>
+      <button className='btn' onClick={navBack}>Back</button>
     </div>
   )  
 }

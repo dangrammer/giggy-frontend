@@ -11,11 +11,11 @@ const Profile = (props) => {
   }
 
   return (
-    <div onClick={handleClick}>
-      @{username}
-      {principal_role ? ` — ${principal_role}` : ' — '} 
-      {principal_instrument ? ` / ${principal_instrument} — ` : null}
-      {location}
+    <div id='profile' onClick={handleClick}>
+      <span className='center-left'>@{username}</span>
+      <span className='center-center'>{principal_role ? principal_role : null}</span>
+      <span className='center-center'>{principal_instrument ? principal_instrument : null}</span> 
+      <span className='center-left'>{location}</span>
     </div>
   )
 }

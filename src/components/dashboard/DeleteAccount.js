@@ -15,13 +15,13 @@ const DeleteAccount = ({history}) => {
   }
   
   return (
-    <>
-      <h1>Thanks for using Giggy!</h1>
-      <h4>If you're sure you want to delete your account...</h4>
-      <button onClick={deleteAccount}>CONFIRM DELETION</button>
-      <h2>Otherwise...</h2>
-      <button onClick={navBack}>Back</button>
-    </>
+    <div className='delete-set'>
+      <span className='delete delete-account-heading'>Thanks for using Giggy!</span>
+      <h4 className='delete'>If you're sure you want to delete your account...</h4>
+      <button className='delete btn' onClick={deleteAccount}>CONFIRM DELETION</button>
+      <h2 className='delete'>Otherwise...</h2>
+      <button className='delete btn' onClick={navBack}>Back</button>
+    </div>
   )
 }
 

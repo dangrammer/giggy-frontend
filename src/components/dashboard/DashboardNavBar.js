@@ -7,6 +7,7 @@ const DashboardNavBar = () => {
   return (
     <div id='dash-nav-bar'>
       <NavLink className='dash-nav-link' activeStyle={style} to='/dashboard/listings'>My Listings</NavLink> 
+      {/* fix activeStyle on 'listings/new' */}
       <NavLink className='dash-nav-link' activeStyle={style} to='/dashboard/listings/new'>New Listing</NavLink>
       <NavLink className='dash-nav-link' activeStyle={style} to='/dashboard/profile'>My Profile</NavLink>
     </div>

@@ -6,8 +6,7 @@ const Profiles = ({history}) => {
   const profiles = useSelector(state => state.profileReducer.profiles)
 
   return (
-    <div>
-      <h1>Profiles</h1>
+    <div id='profiles'>
       {profiles.map(profile => 
         <Profile key={profile.id} profile={profile} history={history}/>
       )}

@@ -39,33 +39,16 @@ const NewListingForm = ({history}) => {
   }
 
   return (
-    <>
-      <h1>New Listing Form</h1>
-      <form onSubmit={handleSubmit}>
+    <div id='listing-form'>
+      <form className='center-center' onSubmit={handleSubmit}>
         <select defaultValue='Choose Category' onChange={event => setCategoryId(event.target.value)} required>
           <option disabled hidden>Choose Category</option>
           {categories.map(category => 
             <option key={category.id} value={category.id}>{category.attributes.name}</option>
           )}
         </select>
-        <br/>
-        <input
-          type='text'
-          value={subject}
-          placeholder='Subject'
-          onChange={event => setSubject(event.target.value)}
-          required
-        />
-        <br/>
-        <textarea
-          value={description}
-          placeholder='Description'
-          onChange={event => setDescription(event.target.value)}
-          required
-        />
-        <br/>
         <span>
-          <label htmlFor='checkbox'>Paying</label>
+          <label htmlFor='checkbox'> Paying</label>
           <input
             type='checkbox'
             name='checkbox'
@@ -75,6 +58,24 @@ const NewListingForm = ({history}) => {
         </span>
         <br/>
         <input
+          className='listing-form-input'
+          type='text'
+          value={subject}
+          placeholder='Subject'
+          onChange={event => setSubject(event.target.value)}
+          required
+        />
+        <br/>
+        <textarea
+          className='listing-form-text-area'
+          value={description}
+          placeholder='Description'
+          onChange={event => setDescription(event.target.value)}
+          required
+        />
+        <br/>
+        <input
+          className='listing-form-input'
           type='text'
           value={date}
           placeholder='Date'
@@ -82,6 +83,7 @@ const NewListingForm = ({history}) => {
         />
         <br/>
         <input
+          className='listing-form-input'
           type='text'
           value={endDate}
           placeholder='End Date'
@@ -89,6 +91,7 @@ const NewListingForm = ({history}) => {
         />
         <br/>
         <input
+          className='listing-form-input'
           type='text'
           value={city}
           placeholder='City'
@@ -96,6 +99,7 @@ const NewListingForm = ({history}) => {
         />
         <br/>
         <input
+          className='listing-form-input'
           type='text'
           value={state}
           placeholder='State'
@@ -103,6 +107,7 @@ const NewListingForm = ({history}) => {
         />
         <br/>
         <input
+          className='listing-form-input'
           type='text'
           value={zipCode}
           placeholder='Zip Code'
@@ -110,9 +115,13 @@ const NewListingForm = ({history}) => {
         />
         <br/>
         <br/>
-        <input type='submit' value='Create Listing'/>
+        <input 
+          className='listing-form-input btn listing-form-submit' 
+          type='submit' 
+          value='Create Listing'
+        />
       </form>
-    </>
+    </div>
   )
 }
 

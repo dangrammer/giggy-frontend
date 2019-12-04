@@ -18,7 +18,7 @@ const Header = ({history}) => {
       <span>
         <span id='home-icon'>⌂</span>
         {` ${currentUser.attributes.first_name} `}
-        <button id='log-out-btn' onClick={handleClick}>Log Out</button>
+        <button className='btn' onClick={handleClick}>Log Out</button>
       </span>
     </div>
   )
