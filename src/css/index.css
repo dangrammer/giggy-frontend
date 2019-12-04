@@ -56,6 +56,10 @@ button:focus {
   text-shadow: 1px 1px 1px #9882a8;
 }
 
+.search-filter{
+  color: #544361;
+}
+
 
 /* <Header/> */
 
@@ -172,6 +176,13 @@ button:focus {
   display: flex;
   flex-direction: column; 
   justify-content: center;
+}
+
+#login-errors {
+  font-family: monospace;
+  font-size: 20px;
+  align-self: center;
+  color: red;
 }
 
 #login-form {

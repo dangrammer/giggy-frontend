@@ -1,7 +1,7 @@
 import React, {useState} from 'react'
 import {validateUser} from '../actions/currentUserActions'
 import {createUser} from '../actions/currentUserActions'
-import {useDispatch} from 'react-redux' //, useSelector
+import {useDispatch, useSelector} from 'react-redux'
 
 const Login = ({history}) => {
   const dispatch = useDispatch()
@@ -14,7 +14,7 @@ const Login = ({history}) => {
   const [state, setState] = useState('')
   const [zipCode, setZipCode] = useState('')
   const [login, setLogin] = useState(true)
-  // const errors = useSelector(state => state.currentUserReducer.errors)
+  const errors = useSelector(state => state.currentUserReducer.errors)
   
   const clearForm = () => {
     setFirstName('')
@@ -29,6 +29,7 @@ const Login = ({history}) => {
 
   const handleClick = () => {
     setLogin(!login)
+    dispatch({type: 'CLEAR_USER_ERRORS'})
   }
 
   const handleSubmit = (event) => {
@@ -48,7 +49,7 @@ const Login = ({history}) => {
 
   return (
     <div id='login'>
-      {/* <h4 style={{color: 'red'}}>{errors}</h4> */}
+      <span id='login-errors'>{errors}</span>
       <form id='login-form' onSubmit={handleSubmit}>
         <input
           className='login-input'
@@ -56,7 +57,6 @@ const Login = ({history}) => {
           value={userName}
           placeholder='Username'
           onChange={event => setUserName(event.target.value)}
-          required
         />
         <input
           className='login-input'
@@ -64,7 +64,6 @@ const Login = ({history}) => {
           value={password}
           placeholder='Password'
           onChange={event => setPassword(event.target.value)}
-          required
         />
         {login ? null :
           <>
