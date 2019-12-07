@@ -21,10 +21,10 @@ const App = () => {
           <NavBar/>
           <Route component={MainContainer}/>
         </> :
-        <>
-          <Route exact path='/' component={Welcome}/>
-          <Redirect to='/'/>
-        </>
+          <>
+            <Route exact path='/' component={Welcome}/>
+            <Redirect to='/'/>
+          </>
       }
     </>
   )
