@@ -1,5 +1,5 @@
 <img 
-  src="public/images/welcomePage.png" 
+  src="public/images/banner.png" 
   alt="giggy walkthrough demo link to youtube" 
   width="1350" 
   height="500"
@@ -44,19 +44,19 @@ features, refactoring certain code blocks, and seeking out bugs, the main to-dos
 
 ## Screenshots
 
-  ### Login/Signup
+  Login/Signup
   <br/>
   ![Login/Signup Demo](public/gifs/loginSignup.gif)
 
-  ### Listings
+  Listings
   <br/>
   ![Listings Demo](public/gifs/listings.gif)
 
-  ### Profiles
+  Profiles
   <br/>
   ![Profiles Demo](public/gifs/profiles.gif)
 
-  ### Dashboard
+  Dashboard
   <br/>
   ![Dashboard Demo](public/gifs/dashboard.gif)
 
