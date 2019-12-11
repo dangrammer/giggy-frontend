@@ -1,7 +1,12 @@
-# Giggy
+<img 
+  src="public/images/welcomePage.png" 
+  alt="giggy walkthrough demo link to youtube" 
+  width="1350" 
+  height="500"
+/>
 
-Giggy is an app for musicians to post, browse, or search listings for music opportunities.
-It is a project application used for module 5 of Flatiron School. Besides smoothing up existing 
+Giggy is an app for musicians to post, browse, search, and apply to listings for music opportunities.
+It is a project application done for module 5 of Flatiron School. Besides smoothing up existing 
 features, refactoring certain code blocks, and seeking out bugs, the main to-dos are:
   - implement user-to-user messaging
   - add custom validation error messages
@@ -26,7 +31,8 @@ features, refactoring certain code blocks, and seeking out bugs, the main to-dos
   *_This application exclusivley uses functional components and React hooks_.
 
 ## Live Demo
-  Walkthrough with narration:
+  Link to walkthrough video with narration:
+  <br/>
   <a href="https://www.youtube.com/watch?v=qJu9ODluSp4&feature=youtu.be" target="_blank">
     <img 
       src="public/images/welcomePage.png" 
@@ -38,19 +44,29 @@ features, refactoring certain code blocks, and seeking out bugs, the main to-dos
 
 ## Screenshots
 
-  Login/Signup
+  ### Login/Signup
+  <br/>
   ![Login/Signup Demo](public/gifs/loginSignup.gif)
 
-  Listings
+  ### Listings
+  <br/>
   ![Listings Demo](public/gifs/listings.gif)
 
-  Profiles
+  ### Profiles
+  <br/>
   ![Profiles Demo](public/gifs/profiles.gif)
 
-  Dashboard
+  ### Dashboard
+  <br/>
   ![Dashboard Demo](public/gifs/dashboard.gif)
 
+## How To Install and Run 
 
+  1. install and run [Giggy backend API](https://github.com/dangrammer/giggy-backend)
+  2. fork (optional) then clone or download this repository to local machine
+  3. use text editor and/or terminal to navigate into `giggy-frontend` directory
+  4. run `npm install` (or `npm i`) in terminal to install necessary dependencies
+  5. run `npm start` in terminal to launch the app in browser
 
 
 
