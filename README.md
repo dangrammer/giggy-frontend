@@ -2,7 +2,7 @@
   src="public/images/banner.png" 
   alt="giggy walkthrough demo link to youtube" 
   width="1350" 
-  height="500"
+  height="400"
 />
 
 Giggy is an app for musicians to post, browse, search, and apply to listings for music opportunities.
