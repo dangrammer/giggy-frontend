@@ -1,14 +1,14 @@
-#Giggy
+# Giggy
 
 Giggy is an app for musicians to post, browse, or search listings for music opportunities.
-It is a project application for module 5 of Flatiron School. Besides smoothing up existing 
+It is a project application used for module 5 of Flatiron School. Besides smoothing up existing 
 features, refactoring certain code blocks, and seeking out bugs, the main to-dos are:
-  - implement is user-to-user messaging
+  - implement user-to-user messaging
   - add custom validation error messages
   - enhance search and filter options
   - beautify show pages
 
-##Languages/Libraries:
+## Languages/Libraries:
 
   - HTML5 (JSX)
   - CSS3 (customized - no templates)
@@ -23,9 +23,35 @@ features, refactoring certain code blocks, and seeking out bugs, the main to-dos
   - Redux-thunk ^2.3.0 
   - Redux-Devtools-Extension ^2.13.8
 
-  _*This application exclusivley uses functional components and React hooks_.
+  *_This application exclusivley uses functional components and React hooks_.
 
-  
+## Live Demo
+  Walkthrough with narration:
+  <a href="https://www.youtube.com/watch?v=qJu9ODluSp4&feature=youtu.be" target="_blank">
+    <img 
+      src="public/images/welcomePage.png" 
+      alt="giggy walkthrough demo link to youtube" 
+      width="300" 
+      height="200"
+    />
+  </a>  
+
+## Screenshots
+
+  Login/Signup
+  ![Login/Signup Demo](public/gifs/loginSignup.gif)
+
+  Listings
+  ![Listings Demo](public/gifs/listings.gif)
+
+  Profiles
+  ![Profiles Demo](public/gifs/profiles.gif)
+
+  Dashboard
+  ![Dashboard Demo](public/gifs/dashboard.gif)
+
+
+
 
 
 
