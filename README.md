@@ -13,6 +13,9 @@ features, refactoring certain code blocks, and seeking out bugs, the main to-dos
   - enhance search and filter options
   - beautify show pages
 
+## Backend Repository
+  - [Giggy API](https://github.com/dangrammer/giggy-backend)
+
 ## Languages/Libraries:
 
   - HTML5 (JSX)
@@ -67,6 +70,7 @@ features, refactoring certain code blocks, and seeking out bugs, the main to-dos
   3. use text editor and/or terminal to navigate into `giggy-frontend` directory
   4. run `npm install` (or `npm i`) in terminal to install necessary dependencies
   5. run `npm start` in terminal to launch the app in browser
+  (6. following prompt, enter `y` in terminal to run frontend on alternate port)
 
 
 
