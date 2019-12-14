@@ -70,7 +70,9 @@ features, refactoring certain code blocks, and seeking out bugs, the main to-dos
   3. use text editor and/or terminal to navigate into `giggy-frontend` directory
   4. run `npm install` (or `npm i`) in terminal to install necessary dependencies
   5. run `npm start` in terminal to launch the app in browser
-  (6. following prompt, enter `y` in terminal to run frontend on alternate port)
+
+  *_Note: If backend server is already running, it will be running on http://localhost:3000/. After 
+  running `npm start`, follow prompt and enter `y` in terminal to run frontend on alternate port._
 
 
 
