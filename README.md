@@ -1,6 +1,6 @@
 <img 
   src="public/images/banner.png" 
-  alt="giggy walkthrough demo link to youtube" 
+  alt="Giggy banner" 
   width="1350" 
   height="400"
 />
@@ -12,6 +12,9 @@ features, refactoring certain code blocks, and seeking out bugs, the main to-dos
   - add custom validation error messages
   - enhance search and filter options
   - beautify show pages
+
+## Author
+  - Dan Romans | [dangrammer](https://github.com/dangrammer)
 
 ## Backend Repository
   - [Giggy API](https://github.com/dangrammer/giggy-backend)
@@ -39,7 +42,7 @@ features, refactoring certain code blocks, and seeking out bugs, the main to-dos
   <a href="https://www.youtube.com/watch?v=qJu9ODluSp4&feature=youtu.be" target="_blank">
     <img 
       src="public/images/welcomePage.png" 
-      alt="giggy walkthrough demo link to youtube" 
+      alt="Giggy walkthrough demo link to Youtube" 
       width="300" 
       height="200"
     />
@@ -72,7 +75,7 @@ features, refactoring certain code blocks, and seeking out bugs, the main to-dos
   5. run `npm start` in terminal to launch the app in browser
 
   *_Note: If backend server is already running, it will be running on http://localhost:3000/. After 
-  running `npm start`, follow prompt and enter `y` in terminal to run frontend on alternate port._
+  running_ `npm start`_, follow prompt and enter_ `y` _in terminal to run frontend on alternate port._
 
 
 
