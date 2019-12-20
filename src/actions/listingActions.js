@@ -27,6 +27,11 @@ export const filterListings = (filter) => ({
   filter
 })
 
+export const searchListings = (searchTerm) => ({
+  type: 'SEARCH_LISTINGS',
+  searchTerm
+})
+
 export const listingShow = (listingId, history) => {
   const token = localStorage.token
   

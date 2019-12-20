@@ -76,7 +76,3 @@ features, refactoring certain code blocks, and seeking out bugs, the main to-dos
 
   *_Note: If backend server is already running, it will be running on http://localhost:3000/. After 
   running_ `npm start`_, follow prompt and enter_ `y` _in terminal to run frontend on alternate port._
-
-
-
-

@@ -1,7 +1,8 @@
 const initialState = {
   listings: [],
   listingShow: {},
-  filter: 'all'
+  filter: 'all',
+  searchTerm: ''
 }
 
 const listingReducer = (state = initialState, action) => {
@@ -16,6 +17,9 @@ const listingReducer = (state = initialState, action) => {
 
     case 'FILTER_LISTINGS':
       return {...state, filter: action.filter}  
+
+    case 'SEARCH_LISTINGS':
+      return {...state, searchTerm: action.searchTerm}
 
     case 'CREATE_LISTING':
       return {
