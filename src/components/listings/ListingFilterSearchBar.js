@@ -18,7 +18,7 @@ const ListingFilterSearchBar = () => {
   }
 
   return (
-    <div className='listing-filter-search'>
+    <div className='filter-search'>
       <div>
         <label htmlFor='filter'>Filter by Category: </label>
         <select name='filter' defaultValue={filter} onChange={(event) => changeFilter(event)}>

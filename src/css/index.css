@@ -252,7 +252,7 @@ button:focus {
 
 .listing {
   display: grid;
-  grid-template-columns: 0.7fr 0.5fr 8fr 2fr 2fr;
+  grid-template-columns: 1fr 0.5fr 8fr 2fr 2fr;
   align-content: center;
   height: 30px;
   padding-top: 5px;
@@ -272,9 +272,9 @@ button:focus {
 }
 
 
-/* <ListingFilterSearchBar/> */
+/* <ListingFilterSearchBar/> & <ProfileFilterSearchBar/> */
 
-.listing-filter-search {
+.filter-search {
   position: fixed;
   top: 95px;
   left: 0;
@@ -295,7 +295,7 @@ button:focus {
 /* <Profiles/> */
 
 #profiles {
-  margin-top: 110px;
+  margin-top: 155px;
 }
 
 

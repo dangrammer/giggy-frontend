@@ -1,6 +1,8 @@
 const initialState = {
   profiles: [],
-  profileShow: {}
+  profileShow: {},
+  filter: 'username',
+  searchTerm: ''
 }
 
 const profileReducer = (state = initialState, action) => {
@@ -12,6 +14,12 @@ const profileReducer = (state = initialState, action) => {
 
     case 'FETCH_PROFILES':
       return {...state, profiles: [...action.profiles]} 
+
+    case 'FILTER_PROFILES':
+      return {...state, filter: action.filter} 
+
+    case 'SEARCH_PROFILES':
+      return {...state, searchTerm: action.searchTerm}  
 
     case 'PROFILE_SHOW':
       return {...state, profileShow: action.profile}

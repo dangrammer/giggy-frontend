@@ -22,6 +22,16 @@ export const fetchProfiles = () => {
   }
 }
 
+export const filterProfiles = (filter) => ({
+  type: 'FILTER_PROFILES',
+  filter
+})
+
+export const searchProfiles = (searchTerm) => ({
+  type: 'SEARCH_PROFILES',
+  searchTerm
+})
+
 export const profileShow = (profileId, history) => {
   return (dispatch) => {
     const token = localStorage.token
