@@ -15,7 +15,7 @@ const Login = ({history}) => {
   const [zipCode, setZipCode] = useState('')
   const [login, setLogin] = useState(true)
   const errors = useSelector(state => state.currentUserReducer.errors)
-  
+  console.log(errors)
   const clearForm = () => {
     setFirstName('')
     setLastName('')
@@ -49,7 +49,9 @@ const Login = ({history}) => {
 
   return (
     <div id='login'>
-      <span id='login-errors'>{errors}</span>
+      <ul id='login-errors'>
+        {errors ? errors.map(error => <li key={error}>{error}</li>) : null}
+      </ul>
       <form id='login-form' onSubmit={handleSubmit}>
         <input
           className='login-input'
@@ -73,7 +75,7 @@ const Login = ({history}) => {
               value={firstName}
               placeholder='First Name'
               onChange={event => setFirstName(event.target.value)}
-              required
+             
             />
             <input
               className='login-input'
@@ -81,7 +83,7 @@ const Login = ({history}) => {
               value={lastName}
               placeholder='Last Name'
               onChange={event => setLastName(event.target.value)}
-              required
+             
             />
             <input
               className='login-input'
@@ -89,7 +91,7 @@ const Login = ({history}) => {
               value={imageUrl}
               placeholder='Image URL'
               onChange={event => setImageUrl(event.target.value)}
-              required
+             
             />
             <input
               className='login-input'
@@ -97,7 +99,7 @@ const Login = ({history}) => {
               value={city}
               placeholder='City'
               onChange={event => setCity(event.target.value)}
-              required
+             
             />
             <input
               className='login-input'
@@ -105,7 +107,7 @@ const Login = ({history}) => {
               value={state}
               placeholder='State'
               onChange={event => setState(event.target.value)}
-              required
+             
             />
             <input
               className='login-input'
@@ -113,7 +115,7 @@ const Login = ({history}) => {
               value={zipCode}
               placeholder='Zip Code'
               onChange={event => setZipCode(event.target.value)}
-              required
+             
             />
           </>
         }
