@@ -45,6 +45,7 @@ export const validateUser = (returningUser, history) => {
     })
     .then(response => response.json())
     .then(data => {
+      console.log(data)
       if (data.errors) {
         dispatch({type: 'USER_ERRORS', errors: data.errors})
       } else {
@@ -124,11 +125,13 @@ export const updateUser = (profileUpdate, currentUserId, history) => {
     })
     .then(response => response.json())
     .then(data => {
-      data.errors ?
-        console.log(data.errors) : // do something more useful with errors
-          dispatch({type: 'UPDATE_USER', user: data.data})
-          dispatch({type: 'PROFILE_SHOW', profile: data.data}) //borrowed from profileReducer
-          history.goBack()
+      if (data.errors) {
+        dispatch({type: 'USER_ERRORS', errors: data.errors})
+      } else {
+        dispatch({type: 'UPDATE_USER', user: data.data})
+        dispatch({type: 'PROFILE_SHOW', profile: data.data}) //borrowed from profileReducer
+        history.goBack()
+      }
     })
   }
 }

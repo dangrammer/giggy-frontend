@@ -23,6 +23,7 @@ const EditProfile = ({history}) => {
   const [websiteUrl, setWebsiteUrl] = useState(website_url)
   const [bioVar, setBioVar] = useState(bio)
   const [creditsVar, setCreditsVar] = useState(credits)
+  const errors = useSelector(state => state.currentUserReducer.errors)
 
   const handleSubmit = (event) => {
     event.preventDefault()
@@ -167,6 +168,9 @@ const EditProfile = ({history}) => {
           onChange={event => setCreditsVar(event.target.value)}
         />
         <br/>
+        <ul id='login-errors'>
+          {errors ? errors.map(error => <li key={error}>{error}</li>) : null}
+        </ul>
         <br/>
         <input 
           className='form-input form-submit btn'

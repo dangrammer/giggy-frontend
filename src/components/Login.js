@@ -15,7 +15,7 @@ const Login = ({history}) => {
   const [zipCode, setZipCode] = useState('')
   const [login, setLogin] = useState(true)
   const errors = useSelector(state => state.currentUserReducer.errors)
-  console.log(errors)
+  
   const clearForm = () => {
     setFirstName('')
     setLastName('')
