@@ -30,6 +30,7 @@ const Login = ({history}) => {
   const handleClick = () => {
     setLogin(!login)
     dispatch({type: 'CLEAR_USER_ERRORS'})
+    clearForm()
   }
 
   const handleSubmit = (event) => {
@@ -44,7 +45,6 @@ const Login = ({history}) => {
         password, imageUrl, city, state, zipCode}
       dispatch(createUser(user, history))
     }  
-    clearForm()
   }
 
   return (
