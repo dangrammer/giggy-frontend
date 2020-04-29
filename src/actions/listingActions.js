@@ -86,10 +86,13 @@ export const createListing = (newListing, history) => {
     })
     .then(response => response.json())
     .then(data => {
-      data.errors ?
-        console.log(data.errors) : // do something more useful with errors
-          dispatch({type: 'CREATE_LISTING', listing: data.data})
-          history.push(`/listings/${data.data.id}`)
+      if (data.errors) {
+        dispatch({type: 'LISTING_ERRORS', errors: data.errors})
+        setTimeout(() => dispatch({type: 'CLEAR_USER_ERRORS'}), 2500)
+      } else {
+        dispatch({type: 'CREATE_LISTING', listing: data.data})
+        history.push(`/listings/${data.data.id}`)
+      }
     })
   }
 }

@@ -2,7 +2,8 @@ const initialState = {
   listings: [],
   listingShow: {},
   filter: 'all',
-  searchTerm: ''
+  searchTerm: '',
+  errors: []
 }
 
 const listingReducer = (state = initialState, action) => {
@@ -11,6 +12,12 @@ const listingReducer = (state = initialState, action) => {
     case 'LOADING':
       console.log('loading')
       return state
+
+    case 'LISTING_ERRORS':
+      return {...state, errors: action.errors}   
+      
+    case 'CLEAR_USER_ERRORS':
+      return {...state, errors: []}  
 
     case 'FETCH_LISTINGS':
       return {...state, listings: [...action.listings]} 

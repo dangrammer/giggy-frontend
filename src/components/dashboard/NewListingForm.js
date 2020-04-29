@@ -15,6 +15,7 @@ const NewListingForm = ({history}) => {
   const [zipCode, setZipCode] = useState('')
   const [paying, setPaying] = useState(false)
   const [categoryId, setCategoryId] = useState('')
+  const errors = useSelector(state => state.listingReducer.errors)
   
   const clearForm = () => {
     setSubject('')
@@ -64,7 +65,6 @@ const NewListingForm = ({history}) => {
           value={subject}
           placeholder='Subject'
           onChange={event => setSubject(event.target.value)}
-          required
         />
         <br/>
         <textarea
@@ -72,7 +72,6 @@ const NewListingForm = ({history}) => {
           value={description}
           placeholder='Description'
           onChange={event => setDescription(event.target.value)}
-          required
         />
         <br/>
         <input
@@ -115,6 +114,9 @@ const NewListingForm = ({history}) => {
           onChange={event => setZipCode(event.target.value)}
         />
         <br/>
+        <ul id='login-errors'>
+          {errors ? errors.map(error => <li key={error}>{error}</li>) : null}
+        </ul>
         <br/>
         <input 
           className='form-input form-submit btn' 

@@ -195,7 +195,7 @@ button:focus {
   flex-direction: column; 
   justify-content: center; 
   align-self: center;
-  padding-top: 35px;
+  /* padding-top: 35px; */
   font-size: 30px;
 }
 
