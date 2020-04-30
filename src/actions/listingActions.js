@@ -88,7 +88,7 @@ export const createListing = (newListing, history) => {
     .then(data => {
       if (data.errors) {
         dispatch({type: 'LISTING_ERRORS', errors: data.errors})
-        setTimeout(() => dispatch({type: 'CLEAR_USER_ERRORS'}), 2500)
+        setTimeout(() => dispatch({type: 'CLEAR_USER_ERRORS'}), 3000)
       } else {
         dispatch({type: 'CREATE_LISTING', listing: data.data})
         history.push(`/listings/${data.data.id}`)
@@ -125,10 +125,17 @@ export const updateListing = (listing, listingId, history) => {
     })
     .then(response => response.json())
     .then(data => {
-      data.errors ?
-        console.log(data.errors) : // do something more useful with errors
-          dispatch({type: 'UPDATE_LISTING', listing: data.data})
-          history.goBack()
+      if (data.errors) {
+        dispatch({type: 'LISTING_ERRORS', errors: data.errors})
+        setTimeout(() => dispatch({type: 'CLEAR_USER_ERRORS'}), 3000)
+      } else {
+        dispatch({type: 'UPDATE_LISTING', listing: data.data})
+        history.goBack()
+      }
+      // data.errors ?
+      //   console.log(data.errors) : // do something more useful with errors
+      //     dispatch({type: 'UPDATE_LISTING', listing: data.data})
+      //     history.goBack()
     })
   }
 }

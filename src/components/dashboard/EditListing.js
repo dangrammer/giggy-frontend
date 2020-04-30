@@ -21,6 +21,7 @@ const EditListing = ({history}) => {
   const [zipCode, setZipCode] = useState(zip_code)
   const [payingVar, setPayingVar] = useState(paying)
   const [categoryId, setCategoryId] = useState(category_id)
+  const errors = useSelector(state => state.listingReducer.errors)
 
   const handleSubmit = (event) => {
     event.preventDefault()
@@ -60,7 +61,6 @@ const EditListing = ({history}) => {
           value={subjectVar}
           placeholder='Subject'
           onChange={event => setSubjectVar(event.target.value)}
-          required
         />
         <br/>
         <label htmlFor='description'>Description</label>
@@ -71,7 +71,6 @@ const EditListing = ({history}) => {
           value={descriptionVar}
           placeholder='Description'
           onChange={event => setDescriptionVar(event.target.value)}
-          required
         />
         <br/>
         <label htmlFor='date'>Date</label>
@@ -128,6 +127,9 @@ const EditListing = ({history}) => {
           onChange={event => setZipCode(event.target.value)}
         />
         <br/>
+        <ul id='login-errors'>
+          {errors ? errors.map(error => <li key={error}>{error}</li>) : null}
+        </ul>
         <br/>
         <input 
           className='form-input form-submit btn'
