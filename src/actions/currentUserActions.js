@@ -45,9 +45,9 @@ export const validateUser = (returningUser, history) => {
     })
     .then(response => response.json())
     .then(data => {
-      console.log(data)
       if (data.errors) {
         dispatch({type: 'USER_ERRORS', errors: data.errors})
+        setTimeout(() => dispatch({type: 'CLEAR_USER_ERRORS'}), 3000)
       } else {
         localStorage.setItem('token', data.token)
         dispatch(loginUser(data.user.data))
@@ -127,6 +127,7 @@ export const updateUser = (profileUpdate, currentUserId, history) => {
     .then(data => {
       if (data.errors) {
         dispatch({type: 'USER_ERRORS', errors: data.errors})
+        setTimeout(() => dispatch({type: 'CLEAR_USER_ERRORS'}), 3000)
       } else {
         dispatch({type: 'UPDATE_USER', user: data.data})
         dispatch({type: 'PROFILE_SHOW', profile: data.data}) //borrowed from profileReducer
