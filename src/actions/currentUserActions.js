@@ -1,3 +1,5 @@
+import {API_ROOT, headers} from '../constants'
+
 const loginUser = (user) => ({
   type: 'LOGIN_USER',
   user
@@ -9,13 +11,9 @@ export const loadProfile = () => {
   return (dispatch) => {
     dispatch({type: 'LOADING'})
     if (token) {
-      fetch('http://localhost:3000/api/v1/profile', {
+      fetch(`${API_ROOT}/profile`, {
         method: 'GET',
-        headers: {
-          'Content-Type': 'application/json',
-          'Accept': 'application/json',
-          'Authorization': `Bearer ${token}`
-        }
+        headers: headers(token)
       })
       .then(response => response.json())
       .then(data => {
@@ -32,12 +30,9 @@ export const validateUser = (returningUser, history) => {
 
   return (dispatch) => {
     dispatch({type: 'LOADING'})
-    fetch('http://localhost:3000/api/v1/login', {
+    fetch(`${API_ROOT}/login`, {
       method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        'Accept': 'application/json'
-      },
+      headers: headers(),
       body: JSON.stringify({
         username: userName,
         password,
@@ -63,12 +58,9 @@ export const createUser = (newUser, history) => {
 
   return (dispatch) => {
     dispatch({type: 'LOADING'})
-    fetch('http://localhost:3000/api/v1/users', {
+    fetch(`${API_ROOT}/users`, {
       method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        'Accept': 'application/json'
-      },
+      headers: headers(),
       body: JSON.stringify({
         first_name: firstName,
         last_name: lastName,
@@ -101,13 +93,9 @@ export const updateUser = (profileUpdate, currentUserId, history) => {
 
   return (dispatch) => {
     dispatch({type: 'LOADING'})
-    fetch(`http://localhost:3000/api/v1/users/${currentUserId}`, {
+    fetch(`${API_ROOT}/users/${currentUserId}`, {
       method: 'PATCH',
-      headers: {
-        'Content-Type': 'application/json',
-        'Accept': 'application/json',
-        'Authorization': `Bearer ${token}`
-      },
+      headers: headers(token),
       body: JSON.stringify({
         first_name: firstName,
         last_name: lastName,
@@ -146,13 +134,9 @@ export const deleteUser = (userId, history) => {
 
   return (dispatch) => {
     dispatch({type: 'LOADING'})
-    fetch(`http://localhost:3000/api/v1/users/${userId}`, {
+    fetch(`${API_ROOT}/users/${userId}`, {
       method: 'DELETE',
-      headers: {
-        'Content-Type': 'application/json',
-        'Accept': 'application/json',
-        'Authorization': `Bearer ${token}`
-      }
+      headers: headers(token)
     })
     .then(response => response.json())
     .then(data => {
