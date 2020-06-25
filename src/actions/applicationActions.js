@@ -1,3 +1,4 @@
+import {API_ROOT, headers} from '../constants'
 import {loadProfile} from './currentUserActions'
 import {fetchListings} from './listingActions'
 
@@ -7,13 +8,9 @@ export const createApplication = (listingId, applicantId) => {
   return (dispatch) => {
     dispatch({type: 'LOADING'})
     if (token) {
-      fetch('http://localhost:3000/api/v1/applications', {
+      fetch(`${API_ROOT}/applications`, {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          'Accept': 'application/json',
-          'Authorization': `Bearer ${token}`
-        },
+        headers: headers(token),
         body: JSON.stringify({
           applicant_id: applicantId, 
           listing_id: listingId
@@ -38,13 +35,9 @@ const reRenderListingShow = (listingId) => {
   return (dispatch) => {
     dispatch({type: 'LOADING'})
     if (token) {
-      fetch(`http://localhost:3000/api/v1/listings/${listingId}`, {
+      fetch(`${API_ROOT}/listings/${listingId}`, {
         method: 'GET',
-        headers: {
-          'Content-Type': 'application/json',
-          'Accept': 'application/json',
-          'Authorization': `Bearer ${token}`
-        }
+        headers: headers(token)
       })
       .then(response => response.json())
       .then(data => {
