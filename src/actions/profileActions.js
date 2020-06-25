@@ -1,16 +1,14 @@
+import {API_ROOT, headers} from '../constants'
+
 export const fetchProfiles = () => {
   return (dispatch) => {
     const token = localStorage.token
 
     dispatch({type: 'LOADING'})
     if (token) {
-      fetch('http://localhost:3000/api/v1/users', {
+      fetch(`${API_ROOT}/users`, {
         method: 'GET',
-        headers: {
-          'Content-Type': 'application/json',
-          'Accept': 'application/json',
-          'Authorization': `Bearer ${token}`
-        }
+        headers: headers(token)
       })
       .then(response => response.json())
       .then(data => {
@@ -38,13 +36,9 @@ export const profileShow = (profileId, history) => {
 
     dispatch({type: 'LOADING'})
     if (token) {
-      fetch(`http://localhost:3000/api/v1/users/${profileId}`, {
+      fetch(`${API_ROOT}/users/${profileId}`, {
         method: 'GET',
-        headers: {
-          'Content-Type': 'application/json',
-          'Accept': 'application/json',
-          'Authorization': `Bearer ${token}`
-        }
+        headers: headers(token)
       })
       .then(response => response.json())
       .then(data => {
