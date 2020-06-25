@@ -1,16 +1,14 @@
+import {API_ROOT, headers} from '../constants'
+
 export const fetchListings = () => {
   const token = localStorage.token
 
   return (dispatch) => {
     dispatch({type: 'LOADING'})
     if (token) {
-      fetch('http://localhost:3000/api/v1/listings', {
+      fetch(`${API_ROOT}/listings`, {
         method: 'GET',
-        headers: {
-          'Content-Type': 'application/json',
-          'Accept': 'application/json',
-          'Authorization': `Bearer ${token}`
-        }
+        headers: headers(token)
       })
       .then(response => response.json())
       .then(data => {
@@ -38,13 +36,9 @@ export const listingShow = (listingId, history) => {
   return (dispatch) => {
     dispatch({type: 'LOADING'})
     if (token) {
-      fetch(`http://localhost:3000/api/v1/listings/${listingId}`, {
+      fetch(`${API_ROOT}/listings/${listingId}`, {
         method: 'GET',
-        headers: {
-          'Content-Type': 'application/json',
-          'Accept': 'application/json',
-          'Authorization': `Bearer ${token}`
-        }
+        headers: headers(token)
       })
       .then(response => response.json())
       .then(data => {
@@ -64,13 +58,9 @@ export const createListing = (newListing, history) => {
 
   return (dispatch) => {
     dispatch({type: 'LOADING'})
-    fetch('http://localhost:3000/api/v1/listings', {
+    fetch(`${API_ROOT}/listings`, {
       method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        'Accept': 'application/json',
-        'Authorization': `Bearer ${token}`
-      },
+      headers: headers(token),
       body: JSON.stringify({
         subject,
         description,
@@ -104,13 +94,9 @@ export const updateListing = (listing, listingId, history) => {
 
   return (dispatch) => {
     dispatch({type: 'LOADING'})
-    fetch(`http://localhost:3000/api/v1/listings/${listingId}`, {
+    fetch(`${API_ROOT}/listings/${listingId}`, {
       method: 'PATCH',
-      headers: {
-        'Content-Type': 'application/json',
-        'Accept': 'application/json',
-        'Authorization': `Bearer ${token}`
-      },
+      headers: headers(token),
       body: JSON.stringify({
         subject: subjectVar,
         description: descriptionVar,
@@ -132,10 +118,6 @@ export const updateListing = (listing, listingId, history) => {
         dispatch({type: 'UPDATE_LISTING', listing: data.data})
         history.goBack()
       }
-      // data.errors ?
-      //   console.log(data.errors) : // do something more useful with errors
-      //     dispatch({type: 'UPDATE_LISTING', listing: data.data})
-      //     history.goBack()
     })
   }
 }
@@ -145,13 +127,9 @@ export const deleteListing = (listingId, history) => {
 
   return (dispatch) => {
     dispatch({type: 'LOADING'})
-    fetch(`http://localhost:3000/api/v1/listings/${listingId}`, {
+    fetch(`${API_ROOT}/listings/${listingId}`, {
       method: 'DELETE',
-      headers: {
-        'Content-Type': 'application/json',
-        'Accept': 'application/json',
-        'Authorization': `Bearer ${token}`
-      }
+      headers: headers(token)
     })
     .then(response => response.json())
     .then(data => {
