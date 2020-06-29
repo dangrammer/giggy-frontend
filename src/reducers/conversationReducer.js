@@ -4,7 +4,7 @@ const initialState = {
 
 const conversationReducer = (state = initialState, action) => {
   switch (action.type) {
-    case 'FETCH_LISTINGS':
+    case 'FETCH_CONVERSATIONS':
       return {...state, conversations: [...action.conversations]}
     
     default:
