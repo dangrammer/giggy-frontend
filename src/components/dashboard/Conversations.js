@@ -1,9 +1,9 @@
 import React, {useEffect} from 'react'
 import {useDispatch} from 'react-redux'
-import {Switch, Route} from 'react-router-dom'
+// import {Switch, Route} from 'react-router-dom'
 
 const Conversations = () => {
-  const dispatch = useDispatch()
+  // const dispatch = useDispatch()
 
   return (
     <div>
