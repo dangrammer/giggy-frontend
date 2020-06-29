@@ -21,6 +21,13 @@ const DashboardNavBar = () => {
         New Listing
       </NavLink>
       <NavLink 
+        className='dash-nav-link'
+        activeStyle={style} 
+        exact to='/dashboard/conversations'
+      >
+        Conversations
+      </NavLink>
+      <NavLink 
         className='dash-nav-link' 
         activeStyle={style} 
         exact to='/dashboard/profile'
