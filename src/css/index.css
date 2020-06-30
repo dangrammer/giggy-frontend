@@ -344,6 +344,14 @@ button:focus {
 }
 
 
+/* <MyListings/> */
+
+#conversations {
+  margin-top: 100px;
+  color: #544361;
+}
+
+
 /* <DeleteListing/> & <DeleteAccount/> */
 
 .delete-set {

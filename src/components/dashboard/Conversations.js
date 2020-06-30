@@ -6,7 +6,7 @@ const Conversations = () => {
   // const dispatch = useDispatch()
 
   return (
-    <div>
+    <div id="conversations">
       <h1>Conversations</h1>
     </div>
     // <Switch>
