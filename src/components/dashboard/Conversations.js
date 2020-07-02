@@ -4,7 +4,7 @@ import React, {useEffect} from 'react'
 // import NewConversationForm from './NewConversationForm'
 // import MessagesArea from './MessagesArea'
 import {useDispatch} from 'react-redux'
-import {setActiveConvo} from '../../actions/conversationActions'
+import {setActiveConvo, addConversation, addMessage} from '../../actions/conversationActions'
 // import {Switch, Route} from 'react-router-dom'
 
 const Conversations = () => {
@@ -17,6 +17,11 @@ const Conversations = () => {
   handleReceivedConversation = (response) => {
     const {conversation} = response
     dispatch(addConversation(conversation))
+  }
+
+  handleReceivedMessage = (response) => {
+    const {message} = response
+    dispatch(addMessage(message))
   }
 
   return (

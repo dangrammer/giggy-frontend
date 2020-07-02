@@ -13,6 +13,13 @@ const conversationReducer = (state = initialState, action) => {
 
     case 'ADD_CONVERSATION':
       return {...state, conversations: [...state.conversations, action.conversation]}  
+
+    case 'ADD_MESSAGE':
+      const conversation = state.conversations.find(conversation => 
+        conversation.id === action.message.conversation_id
+      )
+      conversation.messages = [...conversation.messages, message]
+      return {...state, conversations}
     
     default:
       return {state}

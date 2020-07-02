@@ -30,3 +30,8 @@ export const addConversation = (conversation) => ({
   type: 'ADD_CONVERSATION', 
   conversation
 })
+
+export const addMessage = (message) => ({
+  type: 'ADD_MESSAGE', 
+  message
+})
