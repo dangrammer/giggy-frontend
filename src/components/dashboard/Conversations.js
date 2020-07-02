@@ -1,7 +1,7 @@
 import React from 'react'
 import {useSelector, useDispatch} from 'react-redux'
 import {ActionCable} from 'react-actioncable-provider'
-import Cable from './Cable'
+import Cable from '../Cable'
 // import NewConversationForm from './NewConversationForm'
 // import MessagesArea from './MessagesArea'
 import {setActiveConvo, addConversation, addMessage} from '../../actions/conversationActions'
