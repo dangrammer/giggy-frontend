@@ -4,7 +4,6 @@ export const fetchListings = () => {
   const token = localStorage.token
 
   return (dispatch) => {
-    dispatch({type: 'LOADING'})
     if (token) {
       fetch(`${API_ROOT}/listings`, {
         method: 'GET',
@@ -34,7 +33,6 @@ export const listingShow = (listingId, history) => {
   const token = localStorage.token
   
   return (dispatch) => {
-    dispatch({type: 'LOADING'})
     if (token) {
       fetch(`${API_ROOT}/listings/${listingId}`, {
         method: 'GET',
@@ -57,7 +55,6 @@ export const createListing = (newListing, history) => {
     city, state, zipCode, paying, categoryId, userId} = newListing
 
   return (dispatch) => {
-    dispatch({type: 'LOADING'})
     fetch(`${API_ROOT}/listings`, {
       method: 'POST',
       headers: headers(token),
@@ -93,7 +90,6 @@ export const updateListing = (listing, listingId, history) => {
     cityVar, stateVar, zipCode, payingVar, categoryId} = listing
 
   return (dispatch) => {
-    dispatch({type: 'LOADING'})
     fetch(`${API_ROOT}/listings/${listingId}`, {
       method: 'PATCH',
       headers: headers(token),
@@ -126,7 +122,6 @@ export const deleteListing = (listingId, history) => {
   const token = localStorage.token
 
   return (dispatch) => {
-    dispatch({type: 'LOADING'})
     fetch(`${API_ROOT}/listings/${listingId}`, {
       method: 'DELETE',
       headers: headers(token)

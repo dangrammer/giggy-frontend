@@ -9,10 +9,6 @@ const initialState = {
 const listingReducer = (state = initialState, action) => {
   switch (action.type) {
 
-    case 'LOADING':
-      console.log('loading')
-      return state
-
     case 'LISTING_ERRORS':
       return {...state, errors: action.errors}   
       

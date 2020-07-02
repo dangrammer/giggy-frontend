@@ -4,7 +4,6 @@ export const fetchProfiles = () => {
   return (dispatch) => {
     const token = localStorage.token
 
-    dispatch({type: 'LOADING'})
     if (token) {
       fetch(`${API_ROOT}/users`, {
         method: 'GET',
@@ -34,7 +33,6 @@ export const profileShow = (profileId, history) => {
   return (dispatch) => {
     const token = localStorage.token
 
-    dispatch({type: 'LOADING'})
     if (token) {
       fetch(`${API_ROOT}/users/${profileId}`, {
         method: 'GET',

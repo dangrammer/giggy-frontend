@@ -5,10 +5,6 @@ const initialState = {
 
 const currentUserReducer = (state = initialState, action) => {
   switch (action.type) {
-
-    case 'LOADING':
-      console.log('loading')
-      return state
     
     case 'USER_ERRORS':
       return {...state, errors: action.errors}  

@@ -8,10 +8,6 @@ const initialState = {
 const profileReducer = (state = initialState, action) => {
   switch (action.type) {
 
-    case 'LOADING':
-      console.log('loading')
-      return state
-
     case 'FETCH_PROFILES':
       return {...state, profiles: [...action.profiles]} 
 

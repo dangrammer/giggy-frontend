@@ -4,7 +4,6 @@ export const fetchCategories = () => {
   const token = localStorage.token
   
   return (dispatch) => {
-    dispatch({type: 'LOADING'})
     if (token) {
       fetch(`${API_ROOT}/categories`, {
         method: 'GET',

@@ -9,7 +9,6 @@ export const loadProfile = () => {
   const token = localStorage.token
 
   return (dispatch) => {
-    dispatch({type: 'LOADING'})
     if (token) {
       fetch(`${API_ROOT}/profile`, {
         method: 'GET',
@@ -29,7 +28,6 @@ export const validateUser = (returningUser, history) => {
   const {userName, password} = returningUser
 
   return (dispatch) => {
-    dispatch({type: 'LOADING'})
     fetch(`${API_ROOT}/login`, {
       method: 'POST',
       headers: headers(),
@@ -57,7 +55,6 @@ export const createUser = (newUser, history) => {
     imageUrl, city, state, zipCode} = newUser
 
   return (dispatch) => {
-    dispatch({type: 'LOADING'})
     fetch(`${API_ROOT}/users`, {
       method: 'POST',
       headers: headers(),
@@ -92,7 +89,6 @@ export const updateUser = (profileUpdate, currentUserId, history) => {
     websiteUrl, bioVar, creditsVar} = profileUpdate
 
   return (dispatch) => {
-    dispatch({type: 'LOADING'})
     fetch(`${API_ROOT}/users/${currentUserId}`, {
       method: 'PATCH',
       headers: headers(token),
@@ -133,7 +129,6 @@ export const deleteUser = (userId, history) => {
   const token = localStorage.token
 
   return (dispatch) => {
-    dispatch({type: 'LOADING'})
     fetch(`${API_ROOT}/users/${userId}`, {
       method: 'DELETE',
       headers: headers(token)
