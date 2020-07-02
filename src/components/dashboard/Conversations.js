@@ -1,32 +1,63 @@
-import React, {useEffect} from 'react'
-// import {ActionCable} from 'react-actioncable-provider'
-// import Cable from './Cable'
+import React from 'react'
+import {useSelector, useDispatch} from 'react-redux'
+import {ActionCable} from 'react-actioncable-provider'
+import Cable from './Cable'
 // import NewConversationForm from './NewConversationForm'
 // import MessagesArea from './MessagesArea'
-import {useDispatch} from 'react-redux'
 import {setActiveConvo, addConversation, addMessage} from '../../actions/conversationActions'
 // import {Switch, Route} from 'react-router-dom'
 
 const Conversations = () => {
   const dispatch = useDispatch()
+  const conversations = useSelector(state => state.conversationsReducer.conversations)
+  const activeConversationId = useSelector(state => state.conversationsReducer.activeConversationId)
 
-  handleClick = (id) => {
+  const handleClick = (id) => {
     dispatch(setActiveConvo(id))
   }
 
-  handleReceivedConversation = (response) => {
+  const handleReceivedConversation = (response) => {
     const {conversation} = response
     dispatch(addConversation(conversation))
   }
 
-  handleReceivedMessage = (response) => {
+  const handleReceivedMessage = (response) => {
     const {message} = response
     dispatch(addMessage(message))
   }
 
   return (
     <div id="conversations">
+      <ActionCable
+        channel={{channel: 'ConversationsChannel'}}
+        onReceived={handleReceivedConversation}
+      />
+      {conversations.length ?
+        <Cable
+          conversations={conversations}
+          handleReceivedMessage={handleReceivedMessage}
+        />
+          : null
+      }
       <h1>Conversations</h1>
+      <ul>
+        {conversations.map(convo =>
+          <li key={convo.id} onClick={handleClick(convo.id)}>
+            {convo.title}
+          </li>
+        )}
+        {/* {mapConversations(conversations, handleClick)} */}
+      </ul>
+      {/* <NewConversationForm/> */}
+      {/* {activeConversationId ? 
+        <MessagesArea
+          conversation={findActiveConversation(
+            conversations,
+            activeConversationId
+          )}
+        />
+          : null
+      } */}
     </div>
     // <Switch>
     //   <Route exact path='/conversations' component={Conversations}/>

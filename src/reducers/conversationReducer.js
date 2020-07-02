@@ -1,6 +1,6 @@
 const initialState = {
   conversations: [],
-  activeConversation: null
+  activeConversationId: null
 }
 
 const conversationReducer = (state = initialState, action) => {
@@ -9,7 +9,7 @@ const conversationReducer = (state = initialState, action) => {
       return {...state, conversations: [...action.conversations]}
 
     case 'SET_ACTIVE_CONVERSATION':
-      return {...state, activeConversation: action.id} 
+      return {...state, activeConversationId: action.id} 
 
     case 'ADD_CONVERSATION':
       return {...state, conversations: [...state.conversations, action.conversation]}  
@@ -18,8 +18,8 @@ const conversationReducer = (state = initialState, action) => {
       const conversation = state.conversations.find(conversation => 
         conversation.id === action.message.conversation_id
       )
-      conversation.messages = [...conversation.messages, message]
-      return {...state, conversations}
+      conversation.messages = [...conversation.messages, action.message]
+      return {...state}
     
     default:
       return {state}
