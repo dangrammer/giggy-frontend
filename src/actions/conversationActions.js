@@ -20,3 +20,7 @@ export const fetchConversations = () => {
     }
   }
 }
+
+export const setActiveConvo = (id) => {
+  dispatch({type: 'SET_ACTIVE_CONVERSATION', id})
+}

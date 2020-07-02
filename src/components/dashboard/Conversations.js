@@ -1,14 +1,18 @@
 import React, {useEffect} from 'react'
 // import {ActionCable} from 'react-actioncable-provider'
 // import Cable from './Cable'
-// import {API_ROOT} from '../constants'
 // import NewConversationForm from './NewConversationForm'
 // import MessagesArea from './MessagesArea'
-// import {useDispatch} from 'react-redux'
+import {useDispatch} from 'react-redux'
+import {setActiveConvo} from '../../actions/conversationActions'
 // import {Switch, Route} from 'react-router-dom'
 
 const Conversations = () => {
-  // const dispatch = useDispatch()
+  const dispatch = useDispatch()
+
+  handleClick = (id) => {
+    dispatch(setActiveConvo(id))
+  }
 
   return (
     <div id="conversations">
