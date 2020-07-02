@@ -1,5 +1,6 @@
 const initialState = {
-  conversations: []
+  conversations: [],
+  activeConversation: null
 }
 
 const conversationReducer = (state = initialState, action) => {
