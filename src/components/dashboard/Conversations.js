@@ -14,6 +14,11 @@ const Conversations = () => {
     dispatch(setActiveConvo(id))
   }
 
+  handleReceivedConversation = (response) => {
+    const {conversation} = response
+    dispatch(addConversation(conversation))
+  }
+
   return (
     <div id="conversations">
       <h1>Conversations</h1>

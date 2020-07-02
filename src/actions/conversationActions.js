@@ -21,6 +21,12 @@ export const fetchConversations = () => {
   }
 }
 
-export const setActiveConvo = (id) => {
-  dispatch({type: 'SET_ACTIVE_CONVERSATION', id})
-}
+export const setActiveConvo = (id) => ({
+  type: 'SET_ACTIVE_CONVERSATION', 
+  id
+})
+
+export const addConversation = (conversation) => ({
+  type: 'ADD_CONVERSATION', 
+  conversation
+})

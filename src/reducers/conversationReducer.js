@@ -10,6 +10,9 @@ const conversationReducer = (state = initialState, action) => {
 
     case 'SET_ACTIVE_CONVERSATION':
       return {...state, activeConversation: action.id} 
+
+    case 'ADD_CONVERSATION':
+      return {...state, conversations: [...state.conversations, action.conversation]}  
     
     default:
       return {state}
