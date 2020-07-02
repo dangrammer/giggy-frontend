@@ -1,11 +1,11 @@
 import React from 'react'
-import {ActionCable} from 'react-actioncable-provider'
+import {ActionCableConsumer} from 'react-actioncable-provider'
 
 const Cable = ({conversations, handleReceivedMessage}) => {
   return (
     <>
       {conversations.map(convo =>
-        <ActionCable
+        <ActionCableConsumer
           key={convo.id}  
           channel={{channel: 'MessagesChannel', conversation: convo.id}}
           onReceived={handleReceivedMessage}

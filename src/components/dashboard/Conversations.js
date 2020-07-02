@@ -1,6 +1,6 @@
 import React from 'react'
 import {useSelector, useDispatch} from 'react-redux'
-import {ActionCable} from 'react-actioncable-provider'
+import {ActionCableConsumer} from 'react-actioncable-provider'
 import Cable from '../Cable'
 // import NewConversationForm from './NewConversationForm'
 // import MessagesArea from './MessagesArea'
@@ -9,8 +9,8 @@ import {setActiveConvo, addConversation, addMessage} from '../../actions/convers
 
 const Conversations = () => {
   const dispatch = useDispatch()
-  const conversations = useSelector(state => state.conversationsReducer.conversations)
-  const activeConversationId = useSelector(state => state.conversationsReducer.activeConversationId)
+  const conversations = useSelector(state => state.conversationReducer.conversations)
+  // const activeConversationId = useSelector(state => state.conversationReducer.activeConversationId)
 
   const handleClick = (id) => {
     dispatch(setActiveConvo(id))
@@ -28,7 +28,7 @@ const Conversations = () => {
 
   return (
     <div id="conversations">
-      <ActionCable
+      <ActionCableConsumer
         channel={{channel: 'ConversationsChannel'}}
         onReceived={handleReceivedConversation}
       />
