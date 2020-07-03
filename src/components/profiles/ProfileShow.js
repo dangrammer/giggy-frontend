@@ -1,13 +1,22 @@
 import React from 'react'
-import {useSelector} from 'react-redux'
+import {useSelector, useDispatch} from 'react-redux'
+import {createConversation} from '../../actions/conversationActions'
 
 const ProfileShow = ({history}) => {
+  const dispatch = useDispatch()
   const profile = useSelector(state => state.profileReducer.profileShow)
   const currentUser = useSelector(state => state.currentUserReducer.currentUser)
   const {username, full_name, image_url, location, principal_role, principal_instrument,
     bio, credits, website_url, member_since} = profile.attributes
   const listingsCount = profile.attributes.listings_posted
   const applicationsCount = profile.attributes.listings_applied_to
+
+  const startConvo = () => {
+    const senderId = currentUser.id
+    const receiverId = profile.id
+    const users = {senderId, receiverId}
+    dispatch(createConversation(users, history))
+  }
 
   const navBack = () => {
     history.goBack() 
@@ -49,6 +58,8 @@ const ProfileShow = ({history}) => {
           </> :
             null
         }
+        <br/>
+        <button className='btn' onClick={startConvo}>Start a Conversation</button>
         <br/>
         <button className='btn' onClick={navBack}>Back</button>
       </span>

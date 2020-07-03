@@ -43,7 +43,7 @@ const Conversations = () => {
       <ul>
         {conversations.map(convo =>
           <li key={convo.id} onClick={handleClick(convo.id)}>
-            {convo.title}
+            {convo.id}
           </li>
         )}
         {/* {mapConversations(conversations, handleClick)} */}

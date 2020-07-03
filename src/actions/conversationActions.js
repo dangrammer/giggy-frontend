@@ -11,9 +11,39 @@ export const fetchConversations = () => {
       })
       .then(response => response.json())
       .then(data => {
+        console.log(data)
         data.errors ?
           console.log(data.errors) :
             dispatch({type: 'FETCH_CONVERSATIONS', conversations: data.data})
+      })
+    }
+  }
+}
+
+export const createConversation = (users, history) => {
+  const token = localStorage.token
+  const {senderId, receiverId} = users
+
+  console.log(senderId, receiverId)
+
+  return (dispatch) => {
+    if (token) {
+      fetch(`${API_ROOT}/conversations`, {
+        method: 'POST',
+        headers: headers(token),
+        body: JSON.stringify({
+          sender_id: senderId, 
+          receiver_id: receiverId
+        })
+      })
+      .then(response => response.json())
+      .then(data => {
+        console.log(data)
+        if (data.errors) {
+          console.log(data.errors)
+        } else {
+          history.push('/dashboard/conversations')
+        }
       })
     }
   }
