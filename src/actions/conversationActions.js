@@ -36,15 +36,9 @@ export const createConversation = (users, history) => {
           receiver_id: receiverId
         })
       })
-      .then(response => response.json())
-      .then(data => {
-        console.log(data)
-        if (data.errors) {
-          console.log(data.errors)
-        } else {
-          history.push('/dashboard/conversations')
-        }
-      })
+      // is response properly handled by action cable
+      // or does it need to be handled here?
+      history.push('/dashboard/conversations')
     }
   }
 }
