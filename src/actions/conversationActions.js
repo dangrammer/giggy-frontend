@@ -24,8 +24,6 @@ export const createConversation = (users, history) => {
   const token = localStorage.token
   const {senderId, receiverId} = users
 
-  console.log(senderId, receiverId)
-
   return (dispatch) => {
     if (token) {
       fetch(`${API_ROOT}/conversations`, {
@@ -36,8 +34,7 @@ export const createConversation = (users, history) => {
           receiver_id: receiverId
         })
       })
-      // is response properly handled by action cable
-      // or does it need to be handled here?
+      // promises handled by <ActionCableConsumer/> in converstaions.js?
       history.push('/dashboard/conversations')
     }
   }

@@ -10,6 +10,7 @@ import {setActiveConvo, addConversation, addMessage} from '../../actions/convers
 const Conversations = () => {
   const dispatch = useDispatch()
   const conversations = useSelector(state => state.conversationReducer.conversations)
+  const currentUserId = useSelector(state => state.currentUserReducer.currentUser.id)
   // const activeConversationId = useSelector(state => state.conversationReducer.activeConversationId)
 
   const handleClick = (id) => {
@@ -17,7 +18,9 @@ const Conversations = () => {
   }
 
   const handleReceivedConversation = (response) => {
+    console.log(response)
     const {conversation} = response
+    console.log(conversation)
     dispatch(addConversation(conversation))
   }
 
@@ -27,43 +30,43 @@ const Conversations = () => {
   }
 
   return (
-    <div id="conversations">
-      <ActionCableConsumer
-        channel={{channel: 'ConversationsChannel'}}
-        onReceived={handleReceivedConversation}
-      />
-      {conversations.length ?
-        <Cable
-          conversations={conversations}
-          handleReceivedMessage={handleReceivedMessage}
-        />
-          : null
-      }
-      <h1>Conversations</h1>
-      <ul>
-        {conversations.map(convo =>
-          <li key={convo.id} onClick={handleClick(convo.id)}>
-            {convo.id}
-          </li>
-        )}
-        {/* {mapConversations(conversations, handleClick)} */}
-      </ul>
-      {/* <NewConversationForm/> */}
-      {/* {activeConversationId ? 
-        <MessagesArea
-          conversation={findActiveConversation(
-            conversations,
-            activeConversationId
+    <ActionCableConsumer
+      channel={{
+        channel: 'ConversationsChannel', 
+        token: localStorage.token,
+        conversation: `current_user_${currentUserId}`}}
+      onReceived={handleReceivedConversation}
+    >
+      <div id="conversations">
+        {conversations.length ?
+          <Cable
+            conversations={conversations}
+            handleReceivedMessage={handleReceivedMessage}
+          />
+            : null
+        }
+        <h1>Conversations</h1>
+        <ul>
+          {conversations.map(convo =>
+            <li key={convo.id} onClick={handleClick(convo.id)}>
+              {convo.id}
+            </li>
           )}
-        />
-          : null
-      } */}
-    </div>
-    // <Switch>
-    //   <Route exact path='/conversations' component={Conversations}/>
-    //   <Route exact path='/conversations/:id' component={ConversationShow}/>
-    // </Switch>
+        </ul>
+        {/* <NewConversationForm/> */}
+        {/* {activeConversationId ? 
+          <MessagesArea
+            conversation={findActiveConversation(
+              conversations,
+              activeConversationId
+            )}
+          />
+            : null
+        } */}
+      </div>
+    </ActionCableConsumer>  
   )
 }
 
 export default Conversations
+   
