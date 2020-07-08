@@ -11,7 +11,6 @@ export const fetchConversations = () => {
       })
       .then(response => response.json())
       .then(data => {
-        console.log(data)
         data.errors ?
           console.log(data.errors) :
             dispatch({type: 'FETCH_CONVERSATIONS', conversations: data.data})

@@ -12,9 +12,7 @@ import EditProfile from '../components/dashboard/EditProfile'
 import DeleteAccount from '../components/dashboard/DeleteAccount'
 import {fetchCategories} from '../actions/categoryActions'
 import {profileShow} from '../actions/profileActions'
-///
 import {fetchConversations} from '../actions/conversationActions'
-//
 
 const Dashboard = () => {
   const dispatch = useDispatch()
@@ -22,9 +20,7 @@ const Dashboard = () => {
 
   useEffect(() => dispatch(fetchCategories()), [dispatch]) 
   useEffect(() => dispatch(profileShow(currentUserId)), [dispatch, currentUserId])
-  ///
   useEffect(() => dispatch(fetchConversations()), [dispatch]) 
-  //
 
   return (
     <>

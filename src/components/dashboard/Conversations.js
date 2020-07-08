@@ -30,41 +30,39 @@ const Conversations = () => {
   }
 
   return (
-    <ActionCableConsumer
-      channel={{
-        channel: 'ConversationsChannel', 
-        token: localStorage.token,
-        conversation: `current_user_${currentUserId}`}}
-      onReceived={handleReceivedConversation}
-    >
-      <div id="conversations">
-        {conversations.length ?
-          <Cable
-            conversations={conversations}
-            handleReceivedMessage={handleReceivedMessage}
-          />
-            : null
-        }
-        <h1>Conversations</h1>
-        <ul>
-          {conversations.map(convo =>
-            <li key={convo.id} onClick={handleClick(convo.id)}>
-              {convo.id}
-            </li>
+    <div id="conversations">
+      <ActionCableConsumer
+        channel={{channel: 'ConversationsChannel', token: localStorage.token}}
+        onReceived={handleReceivedConversation}
+        onInitialized={() => console.log('ws initialized')}
+        onConnected={() => console.log('ws connected')}
+      />
+      {/* {conversations.length ?
+        <Cable
+          conversations={conversations}
+          handleReceivedMessage={handleReceivedMessage}
+        />
+          : null
+      } */}
+      <h1>Conversations</h1>
+      {/* <ul>
+        {conversations.map(convo =>
+          <li key={convo.id} onClick={handleClick(convo.id)}>
+            {convo.id}
+          </li>
+        )}
+      </ul> */}
+      {/* <NewConversationForm/> */}
+      {/* {activeConversationId ? 
+        <MessagesArea
+          conversation={findActiveConversation(
+            conversations,
+            activeConversationId
           )}
-        </ul>
-        {/* <NewConversationForm/> */}
-        {/* {activeConversationId ? 
-          <MessagesArea
-            conversation={findActiveConversation(
-              conversations,
-              activeConversationId
-            )}
-          />
-            : null
-        } */}
-      </div>
-    </ActionCableConsumer>  
+        />
+          : null
+      } */}
+    </div>
   )
 }
 
