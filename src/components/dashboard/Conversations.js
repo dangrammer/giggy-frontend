@@ -1,7 +1,7 @@
 import React from 'react'
 import {useSelector, useDispatch} from 'react-redux'
 import {ActionCableConsumer} from 'react-actioncable-provider'
-import Cable from '../Cable'
+// import Cable from '../Cable'
 // import NewConversationForm from './NewConversationForm'
 // import MessagesArea from './MessagesArea'
 import {setActiveConvo, addConversation, addMessage} from '../../actions/conversationActions'
@@ -9,13 +9,13 @@ import {setActiveConvo, addConversation, addMessage} from '../../actions/convers
 
 const Conversations = () => {
   const dispatch = useDispatch()
-  const conversations = useSelector(state => state.conversationReducer.conversations)
-  const currentUserId = useSelector(state => state.currentUserReducer.currentUser.id)
+  // const conversations = useSelector(state => state.conversationReducer.conversations)
+  // const currentUserId = useSelector(state => state.currentUserReducer.currentUser.id)
   // const activeConversationId = useSelector(state => state.conversationReducer.activeConversationId)
 
-  const handleClick = (id) => {
-    dispatch(setActiveConvo(id))
-  }
+  // const handleClick = (id) => {
+  //   dispatch(setActiveConvo(id))
+  // }
 
   const handleReceivedConversation = (response) => {
     console.log(response)
@@ -24,10 +24,10 @@ const Conversations = () => {
     dispatch(addConversation(conversation))
   }
 
-  const handleReceivedMessage = (response) => {
-    const {message} = response
-    dispatch(addMessage(message))
-  }
+  // const handleReceivedMessage = (response) => {
+  //   const {message} = response
+  //   dispatch(addMessage(message))
+  // }
 
   return (
     <div id="conversations">
