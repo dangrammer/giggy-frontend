@@ -33,7 +33,7 @@ export const createConversation = (users, history) => {
           receiver_id: receiverId
         })
       })
-      // promises handled by <ActionCableConsumer/> in converstaions.js?
+      // promises need to be handled
       history.push('/dashboard/conversations')
     }
   }
