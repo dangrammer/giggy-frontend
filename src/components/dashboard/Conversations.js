@@ -36,6 +36,7 @@ const Conversations = () => {
         onReceived={handleReceivedConversation}
         onInitialized={() => console.log('ws initialized')}
         onConnected={() => console.log('ws connected')}
+        onRejected={() => console.log('ws rejected')}
       />
       {/* {conversations.length ?
         <Cable
