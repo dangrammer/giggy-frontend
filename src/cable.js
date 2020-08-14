@@ -3,6 +3,7 @@ import API_WS_ROOT from './constants'
 
 const cable = () => {
   const cable = ActionCable.createConsumer(API_WS_ROOT)
+  console.log('cable connected')
 
   return (dispatch) => next => (action) => {
     if (typeof(action) === 'function') return next(action)
