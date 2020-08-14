@@ -1,10 +1,12 @@
 import React from 'react'
 import {useSelector, useDispatch} from 'react-redux'
-import {setActiveConvo, addConversation, addMessage} from '../../actions/conversationActions'
+// import {setActiveConvo, addConversation, addMessage} from '../../actions/conversationActions'
 // import {Switch, Route} from 'react-router-dom'
 
 const Conversations = () => {
-  const dispatch = useDispatch()
+  // const dispatch = useDispatch()
+  const conversations = useSelector(state => state.conversationReducer.conversations)
+  console.log(conversations)
  
   return (
     <div id="conversations">
