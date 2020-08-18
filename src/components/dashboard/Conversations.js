@@ -1,5 +1,5 @@
 import React from 'react'
-import {useSelector, useDispatch} from 'react-redux'
+import {useSelector} from 'react-redux' //, useDispatch
 // import {setActiveConvo, addConversation, addMessage} from '../../actions/conversationActions'
 // import {Switch, Route} from 'react-router-dom'
 
