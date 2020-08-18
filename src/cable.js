@@ -3,13 +3,14 @@ import {API_WS_ROOT} from './constants'
 
 const cable = () => {
   return (dispatch) => next => (action) => {
+    if (typeof(action) === 'function') return next(action)
+    
     const token = localStorage.token
 
     if (token) {
-      if (typeof(action) === 'function') return next(action)
-
-      const cable = ActionCable.createConsumer(`${API_WS_ROOT}?${token}`)
+      const cable = ActionCable.createConsumer(`${API_WS_ROOT}?token=${token}`)
       // console.log('cable connected', cable)
+      // console.log(action)
       const {channel} = action
       let {received} = action
 

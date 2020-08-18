@@ -20,36 +20,42 @@ export const fetchConversations = () => {
 }
 
 export const createConversation = (users, history) => {
-  const token = localStorage.token
   const {senderId, receiverId} = users
 
-  return (dispatch) => {
-    if (token) {
-      fetch(`${API_ROOT}/conversations`, {
-        method: 'POST',
-        headers: headers(token),
-        body: JSON.stringify({
-          sender_id: senderId, 
-          receiver_id: receiverId
-        })
-      })
-      // promises need to be handled
-      history.push('/dashboard/conversations')
-    }
-  }
+  return {type: 'CREATE_CONVO', channel: `current_user_${senderId}`}
 }
 
-export const setActiveConvo = (id) => ({
-  type: 'SET_ACTIVE_CONVERSATION', 
-  id
-})
+// export const createConversation = (users, history) => {
+//   const token = localStorage.token
+//   const {senderId, receiverId} = users
 
-export const addConversation = (conversation) => ({
-  type: 'ADD_CONVERSATION', 
-  conversation
-})
+//   return (dispatch) => {
+//     if (token) {
+//       fetch(`${API_ROOT}/conversations`, {
+//         method: 'POST',
+//         headers: headers(token),
+//         body: JSON.stringify({
+//           sender_id: senderId, 
+//           receiver_id: receiverId
+//         })
+//       })
+//       // promises need to be handled
+//       history.push('/dashboard/conversations')
+//     }
+//   }
+// }
 
-export const addMessage = (message) => ({
-  type: 'ADD_MESSAGE', 
-  message
-})
+// export const setActiveConvo = (id) => ({
+//   type: 'SET_ACTIVE_CONVERSATION', 
+//   id
+// })
+
+// export const addConversation = (conversation) => ({
+//   type: 'ADD_CONVERSATION', 
+//   conversation
+// })
+
+// export const addMessage = (message) => ({
+//   type: 'ADD_MESSAGE', 
+//   message
+// })
