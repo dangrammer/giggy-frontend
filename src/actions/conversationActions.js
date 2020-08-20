@@ -22,7 +22,7 @@ export const fetchConversations = () => {
 export const createConversation = (users, history) => {
   const {senderId, receiverId} = users
 
-  return {type: 'CREATE_CONVO', channel: `current_user_${senderId}`}
+  return {channel: `current_user_${senderId}`}
 }
 
 // export const createConversation = (users, history) => {

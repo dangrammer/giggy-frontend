@@ -121,9 +121,12 @@ export const updateUser = (profileUpdate, currentUserId, history) => {
   }
 }
 
-export const logoutUser = () => ({
-  type: 'LOGOUT_USER'
-})
+export const logoutUser = () => {
+  return dispatch => {
+    dispatch({disconnect: 'disconnect'})
+    dispatch({type: 'LOGOUT_USER'})
+  }
+}
 
 export const deleteUser = (userId, history) => {
   const token = localStorage.token
